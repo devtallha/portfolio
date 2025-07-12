@@ -110,178 +110,100 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
-        title: 'MTI Electronics',
-        slug: 'mti-electronics',
-        liveUrl: 'https://mti-electronics.vercel.app/',
+        title: 'Dinehome',
+        slug: 'dinehome',
+        liveUrl: 'https://dinehome.no/',
         year: 2025,
         description: `
-      A complete agency portfolio platform built for MTI Electronics to showcase their services, blog content, and product offerings. <br/> <br/>
+      Dinehome is the 2nd largest food ordering system in Norway, providing a comprehensive platform for restaurant discovery and food delivery. <br/> <br/>
       
       Key Features:<br/>
       <ul>
-        <li>🛠️ Service Display System: Interactive service showcase with synchronized sliders</li>
-        <li>✍️ Blog Management: SEO-friendly blog with categorization and search</li>
-        <li>🛒 Product Catalog: Organized product display with filtering capabilities</li>
-        <li>📱 Fully Responsive: Optimized for all device sizes</li>
-        <li>⚡ Fast Performance: Optimized Next.js frontend with ISR (Incremental Static Regeneration)</li>
+        <li>🍽️ Restaurant Discovery: Browse and search restaurants with detailed menus and reviews</li>
+        <li>📱 Multi-Platform: Web platform and mobile apps for seamless ordering experience</li>
+        <li>🛒 Order Management: Real-time order tracking and delivery status updates</li>
+        <li>💳 Payment Integration: Secure payment processing for online orders</li>
+        <li>📊 Analytics Dashboard: Restaurant performance metrics and order analytics</li>
+        <li>⚡ High Performance: Optimized for handling thousands of concurrent users</li>
       </ul><br/>
       
       Technical Highlights:
       <ul>
-        <li>Implemented complex slider synchronization logic using Swiper.js</li>
-        <li>Customized Payload CMS admin panel for intuitive content management</li>
-        <li>Developed reusable UI components with shadcn for design consistency</li>
-        <li>Configured efficient data fetching strategies in Next.js</li>
+        <li>Built scalable frontend using Next.js with server-side rendering for SEO</li>
+        <li>Developed robust Laravel backend API handling complex business logic</li>
+        <li>Created cross-platform mobile apps using React Native</li>
+        <li>Implemented real-time order tracking and notifications</li>
+        <li>Optimized database queries for high-traffic scenarios</li>
       </ul>
       `,
         role: `
       Full-Stack Developer <br/>
-      Owned the entire development lifecycle:
+      Contributed to the development of Norway's leading food ordering platform:
       <ul>
-        <li>✅ Backend: Configured Payload CMS with custom collections for services, blogs, and products</li>
-        <li>🎨 Frontend: Built all UI components using Tailwind CSS and shadcn</li>
-        <li>🔄 State Management: Implemented client-side data fetching and caching</li>
-        <li>🖥️ CMS Customization: Created admin interfaces for content editors</li>
-        <li>🚀 Deployment: Set up CI/CD pipeline for Vercel hosting</li>
-        <li>🧩 Third-Party Integration: Added Swiper.js for interactive sliders</li>
+        <li>🌐 Frontend: Developed responsive web interface using Next.js and modern React patterns</li>
+        <li>🔧 Backend: Built RESTful APIs and business logic using Laravel framework</li>
+        <li>📱 Mobile: Created React Native apps for iOS and Android platforms</li>
+        <li>🔄 Real-time Features: Implemented WebSocket connections for live order updates</li>
+        <li>💾 Database: Optimized MySQL queries and database architecture for scalability</li>
+        <li>🚀 Performance: Implemented caching strategies and CDN optimization</li>
       </ul>
       `,
         techStack: [
             'Next.js',
-            'Payload CMS',
-            'Tailwind CSS',
-            'shadcn',
-            'Swiper.js',
-            'React Hook Form',
-            'Vercel',
-        ],
-        thumbnail: '/projects/thumbnail/mti-electronics.webp',
-        longThumbnail: '/projects/long/mti-electronics.webp',
-        images: [
-            '/projects/images/mti-electronics-1.webp',
-            '/projects/images/mti-electronics-2.webp',
+            'Laravel',
+            'React Native',
+            'MySQL',
+            'WebSocket',
+            'RESTful APIs',
+            'Payment Gateway',
+            'Real-time Updates',
         ],
     },
     {
-        title: 'Epikcart',
-        slug: 'epikcart',
+        title: 'isalonee',
+        slug: 'isalonee',
         techStack: [
-            'React',
+            'Next.js',
+            'Laravel',
             'Redux',
             'React i18n',
             'Tailwind CSS',
-            'Framer Motion',
             'debouncing',
             'Api Integration',
         ],
-        thumbnail: '/projects/thumbnail/epikcart.jpg',
-        longThumbnail: '/projects/long/epikcart.jpg',
-        images: [
-            '/projects/images/epikcart-1.png',
-            '/projects/images/epikcart-2.png',
-            '/projects/images/epikcart-3.png',
-            '/projects/images/epikcart-4.png',
-            '/projects/images/epikcart-5.png',
-        ],
-        liveUrl: 'https://demo.epikcart.siphertech.com/',
+        liveUrl: 'https://isalonee.com/',
         year: 2023,
-        description: `Epikcart is a feature-rich, scalable e-commerce platform tailored for large businesses. It features dynamic product filtering, multi-language support with RTL, advanced inventory management, order tracking, and refund systems, offering a comprehensive solution for multi-vendor operations.`,
+        description: `isalonee is a SaaS-based e-commerce system helping businesses to deal with both B2B and B2C operations. It provides a comprehensive platform for managing multi-vendor operations with advanced features for business-to-business and business-to-consumer transactions.`,
         role: `As the frontend developer in a team of five, I: <br/>
-        - Built the frontend from scratch using React, Redux, RTK Query, and Tailwind CSS.<br/>
+        - Built the frontend from scratch using Next.js, React, Redux, RTK Query, and Tailwind CSS.<br/>
         - Developed dynamic filtering logic for the product search page with admin-configurable parameters.<br/>
         - Integrated multi-language support with React i18n, including RTL handling.<br/>
-        - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.`,
+        - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.<br/>
+        - Collaborated with backend team using Laravel for robust API development.`,
     },
     {
-        title: 'Resume Roaster',
-        slug: 'resume-roaster',
-        techStack: [
-            'GPT-4',
-            'Next.js',
-            'Postgressql',
-            'Prisma',
-            'Tailwind CSS',
-        ],
-        thumbnail: '/projects/thumbnail/resume-roaster.jpg',
-        longThumbnail: '/projects/long/resume-roaster.jpg',
-        images: [
-            '/projects/images/resume-roaster-1.png',
-            '/projects/images/resume-roaster-2.png',
-            '/projects/images/resume-roaster-3.png',
-        ],
-        liveUrl: 'https://resume-roaster.vercel.app/',
-        year: 2023,
-        description:
-            'Resume Roaster is a web application designed to provide tailored resume feedback and professional writing services. Built with Next.js, PostgreSQL, Prisma, and Tailwind CSS, it integrates GPT-4 for AI-powered recommendations. The platform also includes peer-to-peer reviews with a points-based system, fostering a collaborative and engaging experience. Targeting freshers, experienced professionals, and programmers, it helps optimize resumes for job-specific success.',
-        role: `As the sole developer and business owner, I:<br/>
-        - Designed and developed the platform end-to-end using Next.js, PostgreSQL, Prisma, and Tailwind CSS.<br/>
-        - Integrated GPT-4 for AI-driven feedback and insights.<br/>
-        - Implemented complex SQL queries, including one to identify the top two resumes based on user points.`,
-    },
-    {
-        title: 'Real Estate',
-        slug: 'property-pro',
+        title: 'Social Media Application',
+        slug: 'social-media-application',
         techStack: [
             'React.js',
-            'Redux',
-            'Tailwind CSS',
-            'React i18n',
-            'Framer Motion',
+            'Laravel',
+            'Swift',
+            'Kotlin',
+            'WebRTC',
+            'Real-time Messaging',
+            'Video Conferencing',
         ],
-        thumbnail: '/projects/thumbnail/property-pro.jpg',
-        longThumbnail: '/projects/long/property-pro.jpg',
-        images: [
-            '/projects/images/property-pro-1.png',
-            '/projects/images/property-pro-2.png',
-            '/projects/images/property-pro-3.png',
-        ],
-        liveUrl: 'https://demo.propertypro.siphertech.com/',
         year: 2023,
         description:
-            'PropertyPro is a real estate management platform offering users a seamless experience to explore, manage, and view property listings. The application emphasizes accessibility and responsive design, ensuring a smooth interface across devices.',
-        role: `As the frontend developer, I:<br/>
-        - Built the frontend using React, Redux, RTK Query, Framer Motion, and Tailwind CSS.<br/>
-        - Integrated dynamic state management for efficient handling of property data.<br/>
-        - Implemented multi-language support with React i18n to cater to diverse audiences.<br/>
-        - Enhanced user interaction with animations and transitions using Framer Motion.`,
-    },
-    {
-        title: 'Consulting Finance',
-        slug: 'crenotive',
-        techStack: ['HTML', 'CSS & SCSS', 'Javascript', 'Bootstrap'],
-        thumbnail: '/projects/thumbnail/consulting-finance.jpg',
-        longThumbnail: '/projects/long/consulting-finance.jpg',
-        images: [
-            '/projects/images/consulting-finance-1.png',
-            '/projects/images/consulting-finance-2.png',
-            '/projects/images/consulting-finance-3.png',
-        ],
-        sourceCode: 'https://github.com/Tajmirul/crenotive',
-        liveUrl: 'https://crenotive.netlify.app/',
-        year: 2023,
-        description:
-            'I developed Crenotive, a portfolio website using Html, SASS, and jQuery to showcase services and expertise. The design focuses on responsive user experience and effective presentation of professional achievements.',
-        role: ``,
-    },
-    {
-        title: 'devLinks',
-        slug: 'devLinks',
-        techStack: ['Next.js', 'Formik', 'Drag & Drop', 'Tailwind CSS'],
-        thumbnail: '/projects/thumbnail/devLinks.jpg',
-        longThumbnail: '/projects/long/devLinks.jpg',
-        images: [
-            '/projects/images/devLinks-1.png',
-            '/projects/images/devLinks-2.png',
-            '/projects/images/devLinks-3.png',
-        ],
-        sourceCode: 'https://github.com/Tajmirul/devsLink',
-        liveUrl: 'https://devlinks-demo.vercel.app/auth/signin',
-        year: 2023,
-        description: `One of the most challenging projects in Frontend Mentor.<br/><br/>
-
-            I developed a LinkSharing App as part of the Frontend Mentor challenge, utilizing React, Redux, and Tailwind CSS to create a responsive and feature-rich platform. The app allows users to share, save, and explore links, with a focus on intuitive design and smooth navigation. Advanced state management ensures efficient data handling for user interactions.`,
-        role: ``,
-    },
+            'A comprehensive social media platform combining features from Facebook, Instagram, and LinkedIn. The application provides a unified social networking experience with multiple modules including events, courses, posts, messaging, video chat, and video conferencing capabilities. Built as a multi-platform solution with web, iOS, and Android applications.',
+        role: `As a full-stack developer, I:<br/>
+        - Developed the web frontend using React.js with modern state management and responsive design.<br/>
+        - Built robust backend APIs using Laravel framework for handling complex social media features.<br/>
+        - Created native mobile applications using Swift for iOS and Kotlin for Android platforms.<br/>
+        - Implemented real-time messaging and video conferencing features using WebRTC technology.<br/>
+        - Designed and developed multiple modules including events, courses, posts, and messaging systems.<br/>
+        - Integrated video chat and video conferencing capabilities for enhanced user interaction.`,
+    }
 ];
 
 export const MY_EXPERIENCE = [
