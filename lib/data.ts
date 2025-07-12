@@ -110,7 +110,7 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
-        title: 'Dinehome',
+        title: 'Dinehome - Food Ordering System',
         slug: 'dinehome',
         liveUrl: 'https://dinehome.no/',
         year: 2025,
@@ -160,7 +160,7 @@ export const PROJECTS: IProject[] = [
         ],
     },
     {
-        title: 'isalonee',
+        title: 'isalonee - Sass',
         slug: 'isalonee',
         techStack: [
             'Next.js',
@@ -180,6 +180,29 @@ export const PROJECTS: IProject[] = [
         - Integrated multi-language support with React i18n, including RTL handling.<br/>
         - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.<br/>
         - Collaborated with backend team using Laravel for robust API development.`,
+    },
+    {
+        title: 'clipss - Reels App',
+        slug: 'clipss',
+        techStack: [
+            'Next.js',
+            'Node.js',
+            'Express.js',
+            'FFmpeg',
+            'Video Compression',
+            'Real-time Streaming',
+            'API Integration',
+        ],
+        liveUrl: 'https://clipss.in/',
+        year: 2023,
+        description: `clipss.in is a reels application similar to Instagram, allowing users to create, share, and discover short-form video content. The platform provides an engaging social media experience focused on video content with seamless video upload, compression, and streaming capabilities.`,
+        role: `As a full-stack developer, I: <br/>
+        - Built the frontend using Next.js with modern React patterns and responsive design.<br/>
+        - Developed the backend API using Node.js and Express.js for handling video uploads and user data.<br/>
+        - Created a custom video compressor using FFmpeg to optimize video files for web streaming.<br/>
+        - Integrated the custom video compressor into the clipss platform for efficient video processing.<br/>
+        - Implemented real-time video streaming and playback functionality.<br/>
+        - Designed user-friendly interface for video creation and sharing features.`,
     },
     {
         title: 'Social Media Application',
