@@ -1,6 +1,6 @@
 'use client';
 import parse from 'html-react-parser';
-import ArrowAnimation from '@/components/ArrowAnimation';
+// import ArrowAnimation from '@/components/ArrowAnimation';
 import TransitionLink from '@/components/TransitionLink';
 import { IProject } from '@/types';
 import { useGSAP } from '@gsap/react';

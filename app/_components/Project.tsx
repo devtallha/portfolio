@@ -1,9 +1,9 @@
 import TransitionLink from '@/components/TransitionLink';
-import { cn } from '@/lib/utils';
+// import { cn } from '@/lib/utils';
 import { IProject } from '@/types';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useRef } from 'react';
 
 interface Props {
@@ -30,10 +30,10 @@ interface Props {
 
 gsap.registerPlugin(useGSAP);
 
-const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
+const Project = ({ index, project, onMouseEnter }: Props) => {
     const externalLinkSVGRef = useRef<SVGSVGElement>(null);
 
-    const { context, contextSafe } = useGSAP(() => {}, {
+    const { context, contextSafe } = useGSAP(() => { }, {
         scope: externalLinkSVGRef,
         revertOnUpdate: true,
     });
@@ -107,7 +107,7 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {selectedProject === null && (
+            {/* {selectedProject === null && (
                 <Image
                     src={project.thumbnail}
                     alt="Project"
@@ -119,7 +119,7 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
                     key={project.slug}
                     loading="lazy"
                 />
-            )}
+            )} */}
             <div className="flex gap-2 md:gap-5">
                 <div className="font-anton text-muted-foreground">
                     _{(index + 1).toString().padStart(2, '0')}.
