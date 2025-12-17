@@ -11,10 +11,6 @@ const Footer = async () => {
                 >
                     {GENERAL_INFO.email}
                 </a>
-
-                <div>
-                    Design & built by Tallha Mushtaq
-                </div>
             </div>
         </footer>
     );
