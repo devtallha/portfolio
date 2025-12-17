@@ -40,6 +40,32 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            {/* Consent Mode v2 initialization - must be before GA */}
+            <Script
+                id="consent-mode"
+                strategy="beforeInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('consent', 'default', {
+                            'analytics_storage': 'denied',
+                            'ad_storage': 'denied',
+                            'wait_for_update': 500
+                        });
+                    `,
+                }}
+            />
+            {/* Consent Manager CMP */}
+            <Script
+                id="consentmanager"
+                strategy="beforeInteractive"
+                src="https://cdn.consentmanager.net/delivery/autoblocking/d2bf19e992097.js"
+                data-cmp-host="b.delivery.consentmanager.net"
+                data-cmp-cdn="cdn.consentmanager.net"
+                data-cmp-codesrc="16"
+                data-cmp-ab="1"
+            />
             <GoogleAnalytics gaId="G-VM9MLG3FHM" />
             <Script id="hotjar" strategy="afterInteractive">
                 {`(function(h,o,t,j,a,r){
