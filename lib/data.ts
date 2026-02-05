@@ -2,19 +2,27 @@ import { IProject } from '@/types';
 
 export const GENERAL_INFO = {
     email: 'devtallha@gmail.com',
+    fullName: 'Tallha Mushtaq',
+    firstName: 'Tallha',
+    lastName: 'Mushtaq',
+    heading: 'Senior Software Engineer',
+    location: 'Pakistan',
+    phoneNumber: '+923157415315',
+    portfolioUrl: 'https://tallha.dev',
+    githubUrl: 'https://github.com/devtallha',
+    linkedinUrl: 'https://www.linkedin.com/in/tallha-mushtaq/',
 
     emailSubject: "Let's collaborate on a project",
     emailBody: 'Hi Tallha, I am reaching out to you because...',
 
-    // oldPortfolio: 'https://www.legacy.me.toinfinite.dev',
-    upworkProfile: 'https://www.upwork.com/freelancers/~01e8066189eb6dd122?mp_source=share',
+    upworkProfile:
+        'https://www.upwork.com/freelancers/~01e8066189eb6dd122?mp_source=share',
 };
 
 export const SOCIAL_LINKS = [
+    { name: 'portfolio', url: 'https://tallha.dev' },
     { name: 'github', url: 'https://github.com/devtallha' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/tallha-mushtaq' },
-    // { name: 'facebook', url: 'https://www.facebook.com/tajmirul.2000' },
-    // { name: 'Old Version', url: GENERAL_INFO.oldPortfolio },
+    { name: 'linkedin', url: 'https://www.linkedin.com/in/tallha-mushtaq/' },
 ];
 
 export const MY_STACK = {
@@ -48,7 +56,7 @@ export const MY_STACK = {
             icon: '/logo/gsap.png',
         },
         {
-            name: 'Frammer Motion',
+            name: 'Framer Motion',
             icon: '/logo/framer-motion.png',
         },
         {
@@ -110,139 +118,158 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
-        title: 'Dinehome - Food Ordering System',
+        title: 'MedicalRadar',
+        slug: 'medical-radar',
+        liveUrl: 'http://ophthalmologyradar.com/',
+        year: 2024,
+        description: `
+        <p>Social media platform for ophthalmologists.</p>
+        <ul>
+          <li>Designed and developed a secure, role-based social platform enabling ophthalmologists to collaborate, share cases, and discuss treatments while ensuring medical data privacy.</li>
+          <li>Implemented scalable backend APIs and real-time interactions, supporting high engagement and seamless content sharing among verified professionals.</li>
+          <li>Optimized performance and data handling to support media-rich medical content with reliable access control and moderation workflows.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>Led end-to-end architecture and implementation of core application modules across frontend and backend.</li>
+          <li>Defined data models, access control policies, and review workflows tailored for medical content.</li>
+          <li>Collaborated with domain experts to translate complex ophthalmology workflows into intuitive product experiences.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Laravel', 'MySQL', 'AWS'],
+    },
+    {
+        title: 'TheTutor.me',
+        slug: 'the-tutor-me',
+        liveUrl: 'https://thetutor.me/',
+        year: 2024,
+        description: `
+        <p>Platform connecting subject experts with learners.</p>
+        <ul>
+          <li>Built a user-friendly learning marketplace connecting tutors and students, covering onboarding, profiles, scheduling, and communication workflows.</li>
+          <li>Engineered scalable matching and booking systems to ensure smooth tutor discovery and session management.</li>
+          <li>Collaborated with product stakeholders to continuously improve UX, resulting in higher user retention and platform engagement.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>Designed and implemented core marketplace flows including onboarding, profile management, and booking.</li>
+          <li>Worked across frontend and backend to ensure reliable session scheduling and notifications.</li>
+          <li>Partnered with design and product to iterate on user journeys based on qualitative and quantitative feedback.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS'],
+    },
+    {
+        title: 'Dinehome',
         slug: 'dinehome',
         liveUrl: 'https://dinehome.no/',
         year: 2025,
         description: `
-      Dinehome is the 2nd largest food ordering system in Norway, providing a comprehensive platform for restaurant discovery and food delivery. <br/> <br/>
-      
-      Key Features:<br/>
-      <ul>
-        <li>🍽️ Restaurant Discovery: Browse and search restaurants with detailed menus and reviews</li>
-        <li>📱 Multi-Platform: Web platform and mobile apps for seamless ordering experience</li>
-        <li>🛒 Order Management: Real-time order tracking and delivery status updates</li>
-        <li>💳 Payment Integration: Secure payment processing for online orders</li>
-        <li>📊 Analytics Dashboard: Restaurant performance metrics and order analytics</li>
-        <li>⚡ High Performance: Optimized for handling thousands of concurrent users</li>
-      </ul><br/>
-      
-      Technical Highlights:
-      <ul>
-        <li>Built scalable frontend using Next.js with server-side rendering for SEO</li>
-        <li>Developed robust Laravel backend API handling complex business logic</li>
-        <li>Created cross-platform mobile apps using React Native</li>
-        <li>Implemented real-time order tracking and notifications</li>
-        <li>Optimized database queries for high-traffic scenarios</li>
-      </ul>
-      `,
+        <p>2nd largest food ordering application in Norway.</p>
+        <ul>
+          <li>Contributed to the development of a high-traffic, large-scale food ordering platform, serving thousands of daily users across Norway.</li>
+          <li>Designed and optimized order processing, restaurant management, and payment workflows with high availability and fault tolerance.</li>
+          <li>Improved system performance and reliability to handle peak-hour traffic, ensuring consistent user experience at national scale.</li>
+        </ul>
+        `,
         role: `
-      Full-Stack Developer <br/>
-      Contributed to the development of Norway's leading food ordering platform:
-      <ul>
-        <li>🌐 Frontend: Developed responsive web interface using Next.js and modern React patterns</li>
-        <li>🔧 Backend: Built RESTful APIs and business logic using Laravel framework</li>
-        <li>📱 Mobile: Created React Native apps for iOS and Android platforms</li>
-        <li>🔄 Real-time Features: Implemented WebSocket connections for live order updates</li>
-        <li>💾 Database: Optimized MySQL queries and database architecture for scalability</li>
-        <li>🚀 Performance: Implemented caching strategies and CDN optimization</li>
-      </ul>
-      `,
-        techStack: [
-            'Next.js',
-            'Laravel',
-            'React Native',
-            'MySQL',
-            'WebSocket',
-            'RESTful APIs',
-            'Payment Gateway',
-            'Real-time Updates',
-        ],
+        <ul>
+          <li>Led and contributed to critical paths including ordering, restaurant onboarding, and payment integrations.</li>
+          <li>Drove performance and scalability improvements across backend services and database queries.</li>
+          <li>Collaborated with cross-functional teams to deliver new features while maintaining high reliability SLAs.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Laravel', 'MySQL', 'AWS'],
     },
     {
-        title: 'isalonee - Sass',
+        title: 'Doocado',
+        slug: 'doocado',
+        liveUrl: 'https://doocado.com/',
+        year: 2024,
+        description: `
+        <p>AI-based food ordering system via WhatsApp for US-based operations.</p>
+        <ul>
+          <li>Developed an AI-driven conversational ordering system integrated with WhatsApp, enabling users to place food orders through natural language.</li>
+          <li>Implemented backend services to interpret user intent, manage menus, and automate order flows with minimal human intervention.</li>
+          <li>Scaled the platform for US-based operations, focusing on reliability, latency optimization, and seamless third-party integrations.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>Designed and implemented conversational flows and orchestration between AI, ordering, and fulfillment services.</li>
+          <li>Integrated external providers (e.g. WhatsApp, payment gateways) into a cohesive, resilient system.</li>
+          <li>Optimized system performance and observability to support production operations.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Nest.js', 'OpenAI', 'PostgreSQL', 'AWS'],
+    },
+    {
+        title: 'iSalonee',
         slug: 'isalonee',
-        techStack: [
-            'Next.js',
-            'Laravel',
-            'Redux',
-            'React i18n',
-            'Tailwind CSS',
-            'debouncing',
-            'Api Integration',
-        ],
         liveUrl: 'https://isalonee.com/',
         year: 2023,
-        description: `isalonee is a SaaS-based e-commerce system helping businesses to deal with both B2B and B2C operations. It provides a comprehensive platform for managing multi-vendor operations with advanced features for business-to-business and business-to-consumer transactions.`,
-        role: `As the frontend developer in a team of five, I: <br/>
-        - Built the frontend from scratch using Next.js, React, Redux, RTK Query, and Tailwind CSS.<br/>
-        - Developed dynamic filtering logic for the product search page with admin-configurable parameters.<br/>
-        - Integrated multi-language support with React i18n, including RTL handling.<br/>
-        - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.<br/>
-        - Collaborated with backend team using Laravel for robust API development.`,
+        description: `
+        <p>Personalized salon & spa booking platform.</p>
+        <ul>
+          <li>Built a highly personalized appointment booking platform connecting users with top-rated salons and spas.</li>
+          <li>Designed intuitive UI/UX flows for search, discovery, and scheduling, improving customer experience and conversion rates.</li>
+          <li>Implemented backend systems for salon onboarding, service management, and real-time availability tracking.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>Owned key user-facing experiences across search, discovery, and booking.</li>
+          <li>Collaborated closely with design and product to refine flows that maximized conversion and retention.</li>
+          <li>Worked with backend teams to ensure reliable availability and scheduling logic.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS'],
     },
     {
-        title: 'clipss - Reels App',
-        slug: 'clipss',
-        techStack: [
-            'Next.js',
-            'Node.js',
-            'Express.js',
-            'FFmpeg',
-            'Video Compression',
-            'Real-time Streaming',
-            'API Integration',
-        ],
-        liveUrl: 'https://clipss.in/',
-        year: 2023,
-        description: `clipss.in is a reels application similar to Instagram, allowing users to create, share, and discover short-form video content. The platform provides an engaging social media experience focused on video content with seamless video upload, compression, and streaming capabilities.`,
-        role: `As a full-stack developer, I: <br/>
-        - Built the frontend using Next.js with modern React patterns and responsive design.<br/>
-        - Developed the backend API using Node.js and Express.js for handling video uploads and user data.<br/>
-        - Created a custom video compressor using FFmpeg to optimize video files for web streaming.<br/>
-        - Integrated the custom video compressor into the clipss platform for efficient video processing.<br/>
-        - Implemented real-time video streaming and playback functionality.<br/>
-        - Designed user-friendly interface for video creation and sharing features.`,
+        title: 'Trigan',
+        slug: 'trigan',
+        liveUrl: 'https://trigan.org/',
+        year: 2024,
+        description: `
+        <p>Decision intelligence & strategy simulation engine.</p>
+        <ul>
+          <li>Engineered a decision intelligence platform that stress-tests critical business strategies before capital commitment.</li>
+          <li>Designed scalable systems to model, simulate, and analyze complex strategic scenarios using real-world data.</li>
+          <li>Collaborated on translating advanced analytical models into actionable insights through clean, intuitive interfaces.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>Implemented core simulation and reporting workflows in collaboration with data and product teams.</li>
+          <li>Contributed to architecture decisions around scalability, data modeling, and system boundaries.</li>
+          <li>Built intuitive UI to surface complex analytical outputs to non-technical stakeholders.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Nest.js', 'Blockchain', 'OpenAI', 'PostgreSQL', 'AWS'],
     },
-    {
-        title: 'Social Media Application',
-        slug: 'social-media-application',
-        techStack: [
-            'React.js',
-            'Laravel',
-            'Swift',
-            'Kotlin',
-            'WebRTC',
-            'Real-time Messaging',
-            'Video Conferencing',
-        ],
-        year: 2023,
-        description:
-            'A comprehensive social media platform combining features from Facebook, Instagram, and LinkedIn. The application provides a unified social networking experience with multiple modules including events, courses, posts, messaging, video chat, and video conferencing capabilities. Built as a multi-platform solution with web, iOS, and Android applications.',
-        role: `As a full-stack developer, I:<br/>
-        - Developed the web frontend using React.js with modern state management and responsive design.<br/>
-        - Built robust backend APIs using Laravel framework for handling complex social media features.<br/>
-        - Created native mobile applications using Swift for iOS and Kotlin for Android platforms.<br/>
-        - Implemented real-time messaging and video conferencing features using WebRTC technology.<br/>
-        - Designed and developed multiple modules including events, courses, posts, and messaging systems.<br/>
-        - Integrated video chat and video conferencing capabilities for enhanced user interaction.`,
-    }
 ];
 
 export const MY_EXPERIENCE = [
     {
         title: 'Senior Software Engineer',
-        company: 'Hello World Technologies',
-        duration: 'Sept 2024 - Present',
+        company: 'BlueHouz · Switzerland (Remote)',
+        duration: 'Aug 2025 - Present',
     },
     {
-        title: 'Team Lead - Software Engineer',
-        company: 'Drudots Technologies Pvt Ltd',
-        duration: 'July 2023 - Sept 2024',
+        title: 'Team Lead & Senior Software Engineer',
+        company: 'DineHome · Norway (Remote)',
+        duration: 'Sep 2024 - Aug 2025',
     },
     {
-        title: 'Software Engineer',
-        company: 'ProNode Technologies',
-        duration: 'Nov 2021 - July 2023',
-    }
+        title: 'Team Lead Software Engineer',
+        company: 'Drudots Technologies · Lahore, Pakistan',
+        duration: 'Jul 2023 - Sep 2024',
+    },
+    {
+        title: 'Associate Software Engineer',
+        company: 'Pangiah · Dubai (Remote)',
+        duration: 'Nov 2021 - Jul 2023',
+    },
 ];
