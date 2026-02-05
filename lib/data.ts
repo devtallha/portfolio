@@ -118,9 +118,9 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
-        title: 'MedicalRadar',
-        slug: 'medical-radar',
-        liveUrl: 'http://ophthalmologyradar.com/',
+        title: 'Social Media Application',
+        slug: 'social-media-application',
+        liveUrl: '',
         year: 2024,
         description: `
         <p>Social media platform for ophthalmologists.</p>
