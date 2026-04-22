@@ -15,11 +15,33 @@ export const generateMetadata = async ({
     const { slug } = await params;
     const project = PROJECTS.find((project) => project.slug === slug);
 
+    if (!project) return {};
+
+    const plainDescription = project.description.replace(/<[^>]*>?/gm, '').trim();
+
     return {
-        title: `${project?.title} - ${project?.techStack
-            .slice(0, 3)
-            .join(', ')}`,
-        description: project?.description,
+        title: project.title,
+        description: plainDescription,
+        openGraph: {
+            title: `${project.title} | Tallha Mushtaq`,
+            description: plainDescription,
+            type: 'article',
+            url: `https://tallha.dev/projects/${project.slug}`,
+            images: [
+                {
+                    url: '/og-image.png', // Ideally each project has an image
+                    width: 1200,
+                    height: 630,
+                    alt: project.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: project.title,
+            description: plainDescription,
+            images: ['/og-image.png'],
+        },
     } as Metadata;
 };
 

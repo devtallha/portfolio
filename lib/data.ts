@@ -5,9 +5,9 @@ export const GENERAL_INFO = {
     fullName: 'Tallha Mushtaq',
     firstName: 'Tallha',
     lastName: 'Mushtaq',
-    heading: 'Senior Software Engineer',
+    heading: 'Senior MERN Stack Developer',
     location: 'Pakistan',
-    phoneNumber: '+923157415315',
+    phoneNumber: '+923230337708',
     portfolioUrl: 'https://tallha.dev',
     githubUrl: 'https://github.com/devtallha',
     linkedinUrl: 'https://www.linkedin.com/in/tallha-mushtaq/',
@@ -62,11 +62,7 @@ export const MY_STACK = {
         {
             name: 'SASS',
             icon: '/logo/sass.png',
-        },
-        {
-            name: 'Bootstrap',
-            icon: '/logo/bootstrap.svg',
-        },
+        }
     ],
     backend: [
         {
@@ -81,19 +77,35 @@ export const MY_STACK = {
             name: 'Express.js',
             icon: '/logo/express.png',
         },
+        {
+            name: 'REST APIs',
+            icon: '/logo/api.webp',
+        },
+        {
+            name: 'RabbitMQ',
+            icon: '/logo/RabbitMQ.webp',
+        },
     ],
     database: [
         {
-            name: 'MySQL',
-            icon: '/logo/mysql.svg',
+            name: 'MongoDB',
+            icon: '/logo/mongodb.svg',
         },
         {
             name: 'PostgreSQL',
             icon: '/logo/postgreSQL.png',
         },
         {
-            name: 'MongoDB',
-            icon: '/logo/mongodb.svg',
+            name: 'MySQL',
+            icon: '/logo/mysql.svg',
+        },
+        {
+            name: 'Redis',
+            icon: '/logo/Redis.webp',
+        },
+        {
+            name: 'Supabase',
+            icon: '/logo/supabase.webp',
         },
         {
             name: 'Prisma',
@@ -102,42 +114,50 @@ export const MY_STACK = {
     ],
     tools: [
         {
-            name: 'Git',
-            icon: '/logo/git.png',
+            name: 'AWS',
+            icon: '/logo/aws.png',
         },
         {
             name: 'Docker',
             icon: '/logo/docker.svg',
         },
         {
-            name: 'AWS',
-            icon: '/logo/aws.png',
+            name: 'Git',
+            icon: '/logo/git.png',
+        },
+        {
+            name: 'AI Integration',
+            icon: '/logo/ai.webp',
+        },
+        {
+            name: 'Claude / Cursor',
+            icon: '/logo/claude.webp',
         },
     ],
 };
 
 export const PROJECTS: IProject[] = [
     {
-        title: 'Social Media Application',
+        title: 'Social media application',
         slug: 'social-media-application',
         liveUrl: '',
         year: 2024,
         description: `
-        <p>Social media platform for ophthalmologists.</p>
+        <p>Social media application for healthcare professionals featuring content feeds, messaging, and profile management.</p>
         <ul>
           <li>Designed and developed a secure, role-based social platform enabling ophthalmologists to collaborate, share cases, and discuss treatments while ensuring medical data privacy.</li>
-          <li>Implemented scalable backend APIs and real-time interactions, supporting high engagement and seamless content sharing among verified professionals.</li>
+          <li>Implemented scalable backend architecture and real-time features, supporting 15,000+ monthly active users with high engagement.</li>
           <li>Optimized performance and data handling to support media-rich medical content with reliable access control and moderation workflows.</li>
         </ul>
         `,
         role: `
         <ul>
+          <li>Technical Team Lead & Senior MERN Stack Developer.</li>
           <li>Led end-to-end architecture and implementation of core application modules across frontend and backend.</li>
           <li>Defined data models, access control policies, and review workflows tailored for medical content.</li>
-          <li>Collaborated with domain experts to translate complex ophthalmology workflows into intuitive product experiences.</li>
         </ul>
         `,
-        techStack: ['Next.js', 'Laravel', 'MySQL', 'AWS'],
+        techStack: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS'],
     },
     {
         title: 'TheTutor.me',
@@ -145,18 +165,18 @@ export const PROJECTS: IProject[] = [
         liveUrl: 'https://thetutor.me/',
         year: 2024,
         description: `
-        <p>Platform connecting subject experts with learners.</p>
+        <p>Online learning platform offering private tutoring services with video sessions, scheduling, and payment processing.</p>
         <ul>
           <li>Built a user-friendly learning marketplace connecting tutors and students, covering onboarding, profiles, scheduling, and communication workflows.</li>
           <li>Engineered scalable matching and booking systems to ensure smooth tutor discovery and session management.</li>
-          <li>Collaborated with product stakeholders to continuously improve UX, resulting in higher user retention and platform engagement.</li>
+          <li>Developed student-tutor matching and dashboard features, resulting in higher user retention and platform engagement.</li>
         </ul>
         `,
         role: `
         <ul>
+          <li>MERN Stack Developer.</li>
           <li>Designed and implemented core marketplace flows including onboarding, profile management, and booking.</li>
           <li>Worked across frontend and backend to ensure reliable session scheduling and notifications.</li>
-          <li>Partnered with design and product to iterate on user journeys based on qualitative and quantitative feedback.</li>
         </ul>
         `,
         techStack: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS'],
@@ -167,7 +187,7 @@ export const PROJECTS: IProject[] = [
         liveUrl: 'https://dinehome.no/',
         year: 2025,
         description: `
-        <p>2nd largest food ordering application in Norway.</p>
+        <p>2nd largest food ordering application in Norway with real-time order tracking and multi-vendor management.</p>
         <ul>
           <li>Contributed to the development of a high-traffic, large-scale food ordering platform, serving thousands of daily users across Norway.</li>
           <li>Designed and optimized order processing, restaurant management, and payment workflows with high availability and fault tolerance.</li>
@@ -176,9 +196,9 @@ export const PROJECTS: IProject[] = [
         `,
         role: `
         <ul>
+          <li>Technical Team Lead & Senior MERN Stack Developer.</li>
           <li>Led and contributed to critical paths including ordering, restaurant onboarding, and payment integrations.</li>
           <li>Drove performance and scalability improvements across backend services and database queries.</li>
-          <li>Collaborated with cross-functional teams to deliver new features while maintaining high reliability SLAs.</li>
         </ul>
         `,
         techStack: ['Next.js', 'Laravel', 'MySQL', 'AWS'],
@@ -189,21 +209,43 @@ export const PROJECTS: IProject[] = [
         liveUrl: 'https://doocado.com/',
         year: 2024,
         description: `
-        <p>AI-based food ordering system via WhatsApp for US-based operations.</p>
+        <p>AI-based food ordering system via WhatsApp leveraging LLM integrations for smart menu suggestions.</p>
         <ul>
           <li>Developed an AI-driven conversational ordering system integrated with WhatsApp, enabling users to place food orders through natural language.</li>
-          <li>Implemented backend services to interpret user intent, manage menus, and automate order flows with minimal human intervention.</li>
+          <li>Implemented multi-tenant architecture for restaurant onboarding and automated customer interactions.</li>
           <li>Scaled the platform for US-based operations, focusing on reliability, latency optimization, and seamless third-party integrations.</li>
         </ul>
         `,
         role: `
         <ul>
+          <li>Senior MERN Stack Developer.</li>
           <li>Designed and implemented conversational flows and orchestration between AI, ordering, and fulfillment services.</li>
           <li>Integrated external providers (e.g. WhatsApp, payment gateways) into a cohesive, resilient system.</li>
-          <li>Optimized system performance and observability to support production operations.</li>
         </ul>
         `,
         techStack: ['Next.js', 'Nest.js', 'OpenAI', 'PostgreSQL', 'AWS'],
+    },
+    {
+        title: 'Splinter',
+        slug: 'splinter',
+        liveUrl: '',
+        year: 2024,
+        description: `
+        <p>Fintech Buy-Now-Pay-Later (BNPL) product with credit scoring and installment tracking.</p>
+        <ul>
+          <li>Developed a robust fintech solution for secure transaction processing and installment management.</li>
+          <li>Implemented credit scoring algorithms and secure payment workflows to ensure financial reliability.</li>
+          <li>Contributed to both frontend and backend modules to deliver a seamless user experience for credit-based shopping.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>MERN Stack Developer.</li>
+          <li>Owned core transaction and installment tracking modules.</li>
+          <li>Collaborated on security protocols for payment processing and data integrity.</li>
+        </ul>
+        `,
+        techStack: ['React', 'Node.js', 'Express.js', 'MongoDB'],
     },
     {
         title: 'iSalonee',
@@ -211,7 +253,7 @@ export const PROJECTS: IProject[] = [
         liveUrl: 'https://isalonee.com/',
         year: 2023,
         description: `
-        <p>Personalized salon & spa booking platform.</p>
+        <p>Personalized salon & spa booking SaaS platform with appointment management and staff scheduling.</p>
         <ul>
           <li>Built a highly personalized appointment booking platform connecting users with top-rated salons and spas.</li>
           <li>Designed intuitive UI/UX flows for search, discovery, and scheduling, improving customer experience and conversion rates.</li>
@@ -220,9 +262,9 @@ export const PROJECTS: IProject[] = [
         `,
         role: `
         <ul>
+          <li>MERN Stack Developer.</li>
           <li>Owned key user-facing experiences across search, discovery, and booking.</li>
           <li>Collaborated closely with design and product to refine flows that maximized conversion and retention.</li>
-          <li>Worked with backend teams to ensure reliable availability and scheduling logic.</li>
         </ul>
         `,
         techStack: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS'],
@@ -253,23 +295,18 @@ export const PROJECTS: IProject[] = [
 
 export const MY_EXPERIENCE = [
     {
-        title: 'Senior Software Engineer',
-        company: 'BlueHouz · Switzerland (Remote)',
-        duration: 'Aug 2025 - Present',
+        title: 'Technical Team Lead & Senior MERN Stack Developer',
+        company: 'Hello World Technologies · Lahore, Pakistan',
+        duration: 'Sep 2024 - Present',
     },
     {
-        title: 'Team Lead & Senior Software Engineer',
-        company: 'DineHome · Norway (Remote)',
-        duration: 'Sep 2024 - Aug 2025',
-    },
-    {
-        title: 'Team Lead Software Engineer',
-        company: 'Drudots Technologies · Lahore, Pakistan',
+        title: 'Project Team Lead & MERN Stack Developer',
+        company: 'DruDots Technologies · Lahore, Pakistan',
         duration: 'Jul 2023 - Sep 2024',
     },
     {
-        title: 'Associate Software Engineer',
-        company: 'Pangiah · Dubai (Remote)',
+        title: 'MERN Stack Developer',
+        company: 'ProNode Technologies · Lahore, Pakistan',
         duration: 'Nov 2021 - Jul 2023',
     },
 ];

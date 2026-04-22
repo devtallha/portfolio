@@ -42,15 +42,15 @@ const Banner = () => {
             >
                 <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
                     <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">SENIOR</span>
-                        <br /> <span className="ml-4">SOFTWARE ENGINEER</span>
+                        <span className="text-primary uppercase">Tallha Mushtaq</span>
+                        <br /> <span className="ml-4">MERN STACK DEVELOPER</span>
                     </h1>
                     <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
                         Hi! I&apos;m{' '}
                         <span className="font-medium text-foreground">
                             Tallha
                         </span>
-                        . I specialize in creating impactful digital solutions. I have built a premium social media app, a user-friendly POS, inventory systems & Saas products, both of which significantly enhanced user engagement and satisfaction.
+                        . I specialize in architecting and leading high-performance full-stack web applications. I have built premium social media platforms, high-traffic food ordering systems, and AI-integrated SaaS products serving 15,000+ monthly active users.
                     </p>
                     <Button
                         as="link"
@@ -67,7 +67,7 @@ const Banner = () => {
                 <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
                     <div className="slide-up-and-fade">
                         <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            5+
+                            4+
                         </h5>
                         <p className="text-muted-foreground">
                             Years of Experience
