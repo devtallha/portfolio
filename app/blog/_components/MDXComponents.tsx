@@ -3,19 +3,19 @@ import Link from 'next/link';
 
 export const components = {
     h1: (props: any) => (
-        <h1 
+        <h2 
             className="text-3xl md:text-5xl font-anton uppercase tracking-tight mt-12 mb-6" 
             {...props} 
         />
     ),
     h2: (props: any) => (
-        <h2 
+        <h3 
             className="text-2xl md:text-3xl font-anton uppercase tracking-tight mt-10 mb-5 text-blue-500/90" 
             {...props} 
         />
     ),
     h3: (props: any) => (
-        <h3 
+        <h4 
             className="text-xl md:text-2xl font-bold font-roboto-flex mt-8 mb-4" 
             {...props} 
         />

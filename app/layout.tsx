@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         template: '%s | Tallha Mushtaq',
     },
     description:
-        'Portfolio of Tallha Mushtaq - Senior MERN Stack Developer specializing in AI-integrated SaaS, Full Stack Development (MERN), and Scalable Architecture. Check out my projects and expertise.',
+        'Tallha Mushtaq - Senior MERN Developer specializing in AI SaaS, Full Stack (MERN), and Scalable Architecture. Explore my high-impact digital solutions.',
     keywords: [
         'Senior MERN Stack Developer',
         'Full Stack Developer',
@@ -80,6 +80,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: 'https://tallha.dev',
+    },
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/logo/devtallha.png',
     },
 };
 

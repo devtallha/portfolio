@@ -299,15 +299,18 @@ export const MY_EXPERIENCE = [
         title: 'Technical Team Lead & Senior MERN Stack Developer',
         company: 'Hello World Technologies · Lahore, Pakistan',
         duration: 'Sep 2024 - Present',
+        description: 'Leading cross-functional engineering teams to deliver high-impact digital solutions. I am responsible for architecting scalable backend systems using NestJS and Node.js, designing responsive frontends with Next.js and Tailwind CSS, and overseeing the integration of AI-driven features into SaaS products. I mentor junior developers, conduct code reviews, and drive technical strategy to ensure best practices in performance, security, and maintainability.',
     },
     {
         title: 'Project Team Lead & MERN Stack Developer',
         company: 'DruDots Technologies · Lahore, Pakistan',
         duration: 'Jul 2023 - Sep 2024',
+        description: 'Managed the full-stack development of complex web applications from ideation to deployment. I led the migration of legacy systems to modern MERN architecture, implemented real-time communication features, and optimized database performance for high-traffic platforms. My role involved close collaboration with product managers and designers to translate business requirements into efficient technical implementations.',
     },
     {
         title: 'MERN Stack Developer',
         company: 'ProNode Technologies · Lahore, Pakistan',
         duration: 'Nov 2021 - Jul 2023',
+        description: 'Developed and maintained various client-side and server-side components for web applications. I focused on building reusable UI components, integrating third-party APIs, and managing state across complex application flows. I gained significant experience in MongoDB schema design and RESTful API development, contributing to the successful launch of several e-commerce and social networking projects.',
     },
 ];

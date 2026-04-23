@@ -134,25 +134,25 @@ const ProjectDetails = ({ project }: Props) => {
 
                         <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
                             <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
+                                <h2 className="text-muted-foreground font-anton mb-3">
                                     Year
-                                </p>
+                                </h2>
 
                                 <div className="text-lg">{project.year}</div>
                             </div>
                             <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
+                                <h2 className="text-muted-foreground font-anton mb-3">
                                     Tech & Technique
-                                </p>
+                                </h2>
 
                                 <div className="text-lg">
                                     {project.techStack.join(', ')}
                                 </div>
                             </div>
                             <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
+                                <h2 className="text-muted-foreground font-anton mb-3">
                                     Description
-                                </p>
+                                </h2>
 
                                 <div className="text-lg prose-xl markdown-text">
                                     {parse(project.description)}
@@ -160,9 +160,9 @@ const ProjectDetails = ({ project }: Props) => {
                             </div>
                             {project.role && (
                                 <div className="fade-in-later">
-                                    <p className="text-muted-foreground font-anton mb-3">
+                                    <h2 className="text-muted-foreground font-anton mb-3">
                                         My Role
-                                    </p>
+                                    </h2>
 
                                     <div className="text-lg">
                                         {parse(project.role)}
