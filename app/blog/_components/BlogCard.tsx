@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { IBlogPost } from '@/types/blog';
 import { MoveUpRight, Calendar, Clock } from 'lucide-react';
 import { format } from 'date-fns';
+import Image from 'next/image';
 
 const BlogCard = ({ post }: { post: IBlogPost }) => {
     return (
@@ -13,9 +14,12 @@ const BlogCard = ({ post }: { post: IBlogPost }) => {
             {/* Image Placeholder or Actual Image */}
             <div className="aspect-video w-full bg-white/5 relative overflow-hidden">
                 {post.image ? (
-                    <div 
-                        className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-                        style={{ backgroundImage: `url(${post.image})` }}
+                    <Image 
+                        src={post.image} 
+                        alt={post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                 ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-white/10 font-anton text-4xl">

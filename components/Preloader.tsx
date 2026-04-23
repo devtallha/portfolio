@@ -18,30 +18,30 @@ const Preloader = () => {
 
             tl.to('.name-text span', {
                 y: 0,
-                stagger: 0.05,
-                duration: 0.2,
+                stagger: 0.03,
+                duration: 0.15,
             });
 
             tl.to('.title-text span', {
                 y: 0,
-                stagger: 0.03,
-                duration: 0.15,
-            }, '-=0.3');
+                stagger: 0.02,
+                duration: 0.1,
+            }, '-=0.2');
 
             tl.to('.preloader-item', {
-                delay: 1,
+                delay: 0.2,
                 y: '100%',
-                duration: 0.5,
-                stagger: 0.1,
+                duration: 0.4,
+                stagger: 0.05,
             })
-                .to('.name-text span', { autoAlpha: 0 }, '<0.5')
-                .to('.title-text span', { autoAlpha: 0 }, '<0.5')
+                .to('.name-text span', { autoAlpha: 0 }, '<0.2')
+                .to('.title-text span', { autoAlpha: 0 }, '<0.2')
                 .to(
                     preloaderRef.current,
                     {
                         autoAlpha: 0,
                     },
-                    '<1',
+                    '<0.5',
                 );
         },
         { scope: preloaderRef },

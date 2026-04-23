@@ -9,6 +9,8 @@ import { Metadata } from 'next';
 import rehypePrettyCode from 'rehype-pretty-code';
 import Image from 'next/image';
 
+export const dynamic = 'force-static';
+
 export async function generateStaticParams() {
     const posts = await getBlogPosts();
     return posts.map((post) => ({
