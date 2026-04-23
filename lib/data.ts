@@ -17,6 +17,7 @@ export const GENERAL_INFO = {
 
     upworkProfile:
         'https://www.upwork.com/freelancers/~01e8066189eb6dd122?mp_source=share',
+    cvUrl: '/resume/Tallha_Mushtaq_CV.pdf',
 };
 
 export const SOCIAL_LINKS = [

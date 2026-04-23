@@ -5,6 +5,7 @@ import { GENERAL_INFO } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { ArrowDown } from 'lucide-react';
 import React from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -52,16 +53,27 @@ const Banner = () => {
                         </span>
                         . I specialize in architecting and leading high-performance full-stack web applications. I have built premium social media platforms, high-traffic food ordering systems, and AI-integrated SaaS products serving 15,000+ monthly active users.
                     </p>
-                    <Button
-                        as="link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={GENERAL_INFO.upworkProfile}
-                        variant="primary"
-                        className="mt-9 banner-button slide-up-and-fade"
-                    >
-                        Hire Me
-                    </Button>
+                    <div className="mt-9 flex flex-wrap gap-4 slide-up-and-fade">
+                        <Button
+                            as="link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={GENERAL_INFO.upworkProfile}
+                            variant="primary"
+                            className="banner-button"
+                        >
+                            Hire Me
+                        </Button>
+                        <Button
+                            as="link"
+                            href={GENERAL_INFO.cvUrl}
+                            download="Tallha_Mushtaq_CV.pdf"
+                            variant="secondary"
+                            className="banner-button"
+                        >
+                            Download CV <ArrowDown size={20} />
+                        </Button>
+                    </div>
                 </div>
 
                 <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">

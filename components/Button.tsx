@@ -38,6 +38,7 @@ type Props = {
     children: ReactNode | ReactNode[];
     className?: string;
     variant?: Variant;
+    download?: string | boolean;
 } & (ComponentProps<typeof Link> | ButtonProps);
 
 const Button = ({
@@ -75,19 +76,21 @@ const Button = ({
     );
 
     if (as === 'link') {
-        const props = rest as ComponentProps<typeof Link>;
+        const props = rest as ComponentProps<typeof Link> & {
+            download?: string | boolean;
+        };
 
-        if (props.target === '_blank') {
+        if (props.target === '_blank' || props.download) {
             return (
                 <a
                     className={buttonClasses}
                     {...props}
-                    href={props.href.toString() || '#'}
+                    href={props.href?.toString() || '#'}
                 >
                     {variant !== 'link' && (
                         <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover:top-0 transition-all duration-500 scale-150"></span>
                     )}
-                    <span className="z-[1]">
+                    <span className="z-[1] flex items-center gap-2">
                         {loading ? <Child icon={icon} /> : children}
                     </span>
                 </a>
@@ -99,7 +102,7 @@ const Button = ({
                 {variant !== 'link' && (
                     <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover:top-0 transition-all duration-500 scale-150"></span>
                 )}
-                <span className="z-[1]">
+                <span className="z-[1] flex items-center gap-2">
                     {loading ? <Child icon={icon} /> : children}
                 </span>
             </Link>
@@ -112,7 +115,7 @@ const Button = ({
                 {variant !== 'link' && (
                     <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover:top-0 transition-all duration-500 scale-150"></span>
                 )}
-                <span className="z-[1]">
+                <span className="z-[1] flex items-center gap-2">
                     {loading ? <Child icon={icon} /> : children}
                 </span>
             </button>

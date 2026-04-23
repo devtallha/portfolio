@@ -1,9 +1,12 @@
 import type { MetadataRoute } from 'next';
 import { PROJECTS } from '@/lib/data';
+import { getBlogPosts } from '@/lib/blog';
 
 const baseUrl = 'https://tallha.dev';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const blogPosts = await getBlogPosts();
+    
     return [
         {
             url: baseUrl,
@@ -17,6 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 lastModified: new Date(),
                 changeFrequency: 'monthly',
                 priority: 0.8,
+            }),
+        ),
+        ...blogPosts.map(
+            (post): MetadataRoute.Sitemap[0] => ({
+                url: `${baseUrl}/blog/${post.slug}`,
+                lastModified: new Date(post.date),
+                changeFrequency: 'weekly',
+                priority: 0.9,
             }),
         ),
     ];

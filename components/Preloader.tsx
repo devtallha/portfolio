@@ -71,28 +71,24 @@ const Preloader = () => {
                 </p>
 
                 <p className="title-text flex text-[3vw] lg:text-[32px] font-light text-gray-300 leading-none overflow-hidden justify-center">
-                    <span className="inline-block translate-y-full">S</span>
+                    <span className="inline-block translate-y-full">M</span>
                     <span className="inline-block translate-y-full">E</span>
-                    <span className="inline-block translate-y-full">N</span>
-                    <span className="inline-block translate-y-full">I</span>
-                    <span className="inline-block translate-y-full">O</span>
                     <span className="inline-block translate-y-full">R</span>
+                    <span className="inline-block translate-y-full">N</span>
                     <span className="inline-block translate-y-full mx-2"></span>
                     <span className="inline-block translate-y-full">S</span>
-                    <span className="inline-block translate-y-full">O</span>
-                    <span className="inline-block translate-y-full">F</span>
                     <span className="inline-block translate-y-full">T</span>
-                    <span className="inline-block translate-y-full">W</span>
                     <span className="inline-block translate-y-full">A</span>
-                    <span className="inline-block translate-y-full">R</span>
-                    <span className="inline-block translate-y-full">E</span>
+                    <span className="inline-block translate-y-full">C</span>
+                    <span className="inline-block translate-y-full">K</span>
                     <span className="inline-block translate-y-full mx-2"></span>
+                    <span className="inline-block translate-y-full">D</span>
                     <span className="inline-block translate-y-full">E</span>
-                    <span className="inline-block translate-y-full">N</span>
-                    <span className="inline-block translate-y-full">G</span>
-                    <span className="inline-block translate-y-full">I</span>
-                    <span className="inline-block translate-y-full">N</span>
+                    <span className="inline-block translate-y-full">V</span>
                     <span className="inline-block translate-y-full">E</span>
+                    <span className="inline-block translate-y-full">L</span>
+                    <span className="inline-block translate-y-full">O</span>
+                    <span className="inline-block translate-y-full">P</span>
                     <span className="inline-block translate-y-full">E</span>
                     <span className="inline-block translate-y-full">R</span>
                 </p>
