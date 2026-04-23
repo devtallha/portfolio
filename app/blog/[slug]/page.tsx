@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import rehypePrettyCode from 'rehype-pretty-code';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
     const posts = await getBlogPosts();
@@ -85,11 +86,13 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
             </header>
 
             {post.image && (
-                <div className="aspect-video w-full rounded-3xl overflow-hidden mb-16 border border-white/5">
-                    <img 
+                <div className="relative aspect-video w-full rounded-3xl overflow-hidden mb-16 border border-white/5">
+                    <Image 
                         src={post.image} 
                         alt={post.title} 
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        priority
                     />
                 </div>
             )}

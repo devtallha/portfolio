@@ -4,11 +4,8 @@ import Experiences from './_components/Experiences';
 import Skills from './_components/Skills';
 import ProjectList from './_components/ProjectList';
 import BlogPreview from './_components/BlogPreview';
-import { getBlogPosts } from '@/lib/blog';
 
 export default async function Home() {
-    const posts = await getBlogPosts();
-
     return (
         <div className="page-">
             <Banner />
@@ -16,7 +13,7 @@ export default async function Home() {
             <Skills />
             <Experiences />
             <ProjectList />
-            <BlogPreview posts={posts} />
+            <BlogPreview />
         </div>
     );
 }

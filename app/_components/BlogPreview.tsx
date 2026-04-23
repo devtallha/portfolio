@@ -1,15 +1,8 @@
 'use client';
 import SectionTitle from '@/components/SectionTitle';
-import { IBlogPost } from '@/types/blog';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
-import { MoveUpRight, Calendar, Clock } from 'lucide-react';
-import { format } from 'date-fns';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { MoveUpRight } from 'lucide-react';
 
 const BlogPreview = () => {
     const containerRef = useRef<HTMLDivElement>(null);
