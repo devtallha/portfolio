@@ -1,7 +1,5 @@
-import Link from 'next/link';
 import { GithubRepo } from '@/lib/github';
-import { MoveUpRight, Star, GitFork, BookOpen } from 'lucide-react';
-import { format } from 'date-fns';
+import { MoveUpRight, Star, BookOpen } from 'lucide-react';
 
 const OpenSourceCard = ({ repo }: { repo: GithubRepo }) => {
     return (

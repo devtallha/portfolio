@@ -1,6 +1,5 @@
 import SectionTitle from '@/components/SectionTitle';
 import React from 'react';
-import Link from 'next/link';
 import { MoveUpRight } from 'lucide-react';
 import { getOpenSourceProjects } from '@/lib/github';
 import OpenSourceCard from './OpenSourceCard';
