@@ -1,0 +1,78 @@
+---
+title: "Real-World System Design: Building Things That Don't Break at 3 AM"
+description: "Forget the textbook definitions. Let's talk about the practical side of scaling systems, handling failures, and knowing when to keep things simple."
+date: "2026-04-28"
+image: "/blog/system-design.png"
+tags: "System Design, Architecture, Backend, Engineering"
+---
+
+# Real-World System Design: Building Things That Don't Break at 3 AM
+
+We've all seen the flashy architecture diagrams with dozens of microservices, Kafka clusters, and Kubernetes sidecars. They look great on a slide deck, but in the real world, complexity is often the enemy of reliability. After spending years in the trenches building systems for everything from high-frequency fintech to massive healthcare platforms, I've realized that the best architecture isn't the one with the most moving parts. It's the one that handles failure without waking you up in the middle of the night.
+
+## Everything is Broken (And That's Okay)
+
+The biggest mistake I see engineers make is assuming the network is reliable. It isn't. Servers crash, databases lock up, and your favorite third-party API will inevitably go down right when you need it most. 
+
+Instead of trying to build a "perfect" system, we should build systems that expect to fail. This is why I'm a big advocate for patterns like the Circuit Breaker. If a downstream service is struggling, stop hitting it. Give it room to breathe instead of piling on more requests and causing a cascading failure across your entire stack.
+
+```typescript
+// A simple, practical Circuit Breaker logic
+class CircuitBreaker {
+  private status: 'CLOSED' | 'OPEN' | 'HALF_OPEN' = 'CLOSED';
+  private failureLimit = 5;
+  private currentFailures = 0;
+
+  async execute<T>(task: () => Promise<T>): Promise<T> {
+    if (this.status === 'OPEN') {
+      throw new Error("System is recovering. Try again later.");
+    }
+
+    try {
+      const result = await task();
+      this.reset();
+      return result;
+    } catch (err) {
+      this.handleFailure();
+      throw err;
+    }
+  }
+
+  private handleFailure() {
+    this.currentFailures++;
+    if (this.currentFailures >= this.failureLimit) {
+      this.status = 'OPEN';
+      console.log("Circuit tripped! Cooling down...");
+    }
+  }
+
+  private reset() {
+    this.currentFailures = 0;
+    this.status = 'CLOSED';
+  }
+}
+```
+
+## The CAP Theorem is a Choice, Not a Law
+
+We talk about the CAP theorem like it's some abstract mathematical hurdle. In reality, it's just a set of trade-offs you have to live with. You want your data to be perfectly consistent across the globe? Great, but your users in Singapore are going to feel the latency. You want 100% availability? Fine, but some users might see slightly stale data for a few seconds.
+
+In fintech, I usually lean towards consistency. I'd rather show a loading spinner than a wrong bank balance. But for a social feed or a notification system? Just get the data to the user as fast as possible and fix the inconsistencies later. Knowing when to choose which is what separates a senior engineer from a junior one.
+
+## The Microservices Trap
+
+I have to say this: Stop building microservices before you have a reason to. 
+
+If your team is only five people, you don't need 20 repositories and a complex service mesh. You need a modular monolith. It's easier to test, easier to deploy, and significantly easier to debug when something goes wrong. You can always split it into services later when you actually hit a scaling bottleneck. Until then, don't pay the "microservices tax" if you don't have to.
+
+## Observability is More Than Just Logs
+
+If you're only looking at CPU and memory usage, you're flying blind. You need to know what a request is doing as it travels through your system. I'm a huge fan of distributed tracing. Being able to see exactly where a request slowed down (was it the database? the cache? a slow external API?) is a life-saver during a post-mortem.
+
+## My Rule of Thumb
+
+Every time you add a new tool or a new service to your architecture, ask yourself: "Does this make the system easier to understand, or just cooler to talk about?"
+
+The best systems are boring. They do their job, they handle errors gracefully, and they let you sleep through the night. 
+
+*Next time, I'll be sharing some thoughts on why I'm moving away from traditional REST APIs in favor of more event-driven patterns. Catch you then.*
