@@ -26,6 +26,12 @@ export const SOCIAL_LINKS = [
     { name: 'linkedin', url: 'https://www.linkedin.com/in/tallha-mushtaq/' },
 ];
 
+export const OPEN_SOURCE_REPOS = [
+    'https://github.com/devtallha/compresso',
+];
+
+
+
 export const MY_STACK = {
     frontend: [
         {

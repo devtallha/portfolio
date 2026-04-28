@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/all';
 // import Image from 'next/image';
 import React, { useRef, useState, MouseEvent } from 'react';
 import Project from './Project';
+import TransitionLink from '@/components/TransitionLink';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -139,7 +140,7 @@ const ProjectList = () => {
                         className="flex flex-col max-md:gap-10"
                         ref={projectListRef}
                     >
-                        {PROJECTS.map((project, index) => (
+                        {PROJECTS.slice(0, 3).map((project, index) => (
                             <Project
                                 index={index}
                                 project={project}
@@ -149,6 +150,34 @@ const ProjectList = () => {
                             />
                         ))}
                     </div>
+
+                    {PROJECTS.length > 3 && (
+                        <div className="mt-20 flex justify-center">
+                            <TransitionLink 
+                                href="/projects" 
+                                className="group flex items-center gap-4 text-foreground hover:text-primary transition-all font-roboto-flex text-xl uppercase font-anton tracking-wider"
+                            >
+                                View all projects
+                                <div className="size-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
+                                    <svg 
+                                        xmlns="http://www.w3.org/2000/svg" 
+                                        width="20" 
+                                        height="20" 
+                                        viewBox="0 0 24 24" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="2" 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        className="lucide lucide-move-up-right"
+                                    >
+                                        <path d="M13 5H19V11"></path>
+                                        <path d="M19 5L5 19"></path>
+                                    </svg>
+                                </div>
+                            </TransitionLink>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

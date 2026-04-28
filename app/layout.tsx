@@ -107,7 +107,7 @@ export default function RootLayout({
     };
 
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <script
                     type="application/ld+json"
@@ -116,6 +116,7 @@ export default function RootLayout({
             </head>
             <body
                 className={`${antonFont.variable} ${robotoFlex.variable} antialiased`}
+                suppressHydrationWarning
             >
                 <ReactLenis
                     root
