@@ -31,19 +31,21 @@ const robotoFlex = Roboto_Flex({
 export const metadata: Metadata = {
     metadataBase: new URL('https://tallha.dev'),
     title: {
-        default: 'Tallha Mushtaq | Senior MERN Stack Developer Portfolio',
+        default: 'Tallha Mushtaq | Senior Architect & AI-SaaS Specialist | MERN Stack Developer',
         template: '%s | Tallha Mushtaq',
     },
     description:
-        'Tallha Mushtaq - Senior MERN Developer specializing in AI SaaS, Full Stack (MERN), and Scalable Architecture. Explore my high-impact digital solutions.',
+        'Senior MERN Stack Architect and Top Rated Plus Upwork freelancer specializing in AI-integrated SaaS products, scalable architecture, and technical leadership. 4+ years, 15,000+ users served.',
     keywords: [
         'Senior MERN Stack Developer',
-        'Full Stack Developer',
-        'React Developer',
-        'Next.js Expert',
-        'Node.js Developer',
-        'Tallha Mushtaq',
-        'Portfolio',
+        'AI SaaS Developer',
+        'Node.js Architect',
+        'NestJS Expert',
+        'Next.js Developer',
+        'Upwork Top Rated Plus',
+        'Full Stack Developer Pakistan',
+        'LLM Integration Developer',
+        'React Developer for hire',
         'Software Architecture',
     ],
     authors: [{ name: 'Tallha Mushtaq', url: 'https://tallha.dev' }],
@@ -57,10 +59,10 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_US',
         url: 'https://tallha.dev',
-        siteName: 'Tallha Mushtaq Portfolio',
-        title: 'Tallha Mushtaq | Senior MERN Stack Developer',
+        siteName: 'Tallha Mushtaq | Senior MERN Architect',
+        title: 'Tallha Mushtaq | Senior Architect & AI-SaaS Specialist',
         description:
-            'Professional portfolio of Tallha Mushtaq, showcasing high-impact digital solutions and full-stack expertise.',
+            'Senior MERN Stack Architect specializing in AI-integrated SaaS, scalable architecture, and technical leadership. 4+ years leading MERN teams.',
         images: [
             {
                 url: '/logo/devtallha.png',
@@ -72,9 +74,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Tallha Mushtaq | Senior MERN Stack Developer',
+        title: 'Tallha Mushtaq | Senior Architect & AI-SaaS Specialist',
         description:
-            'Professional portfolio of Tallha Mushtaq, showcasing high-impact digital solutions and full-stack expertise.',
+            'Senior MERN Stack Architect specializing in AI-integrated SaaS, scalable architecture, and technical leadership.',
         images: ['/logo/devtallha.png'],
         creator: '@devtallha',
     },
@@ -94,16 +96,36 @@ export default function RootLayout({
 }>) {
     const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Tallha Mushtaq',
-        url: 'https://tallha.dev',
-        jobTitle: 'Senior MERN Stack Developer',
-        sameAs: [
-            'https://github.com/devtallha',
-            'https://www.linkedin.com/in/tallha-mushtaq/',
-        ],
-        description:
-            'Senior MERN Stack Developer specializing in creating impactful digital solutions with React, Next.js, and Node.js.',
+        '@graph': [
+            {
+                '@type': 'Person',
+                '@id': 'https://tallha.dev/#person',
+                name: 'Tallha Mushtaq',
+                url: 'https://tallha.dev',
+                image: 'https://tallha.dev/logo/devtallha.png',
+                jobTitle: 'Senior MERN Stack Architect',
+                description: 'Senior MERN Stack Architect and Top Rated Plus Upwork freelancer specializing in AI-integrated SaaS products and scalable systems.',
+                sameAs: [
+                    'https://github.com/devtallha',
+                    'https://www.linkedin.com/in/tallha-mushtaq/',
+                    'https://www.upwork.com/freelancers/~01e8066189eb6dd122'
+                ],
+                knowsAbout: ['MERN Stack', 'Next.js', 'Node.js', 'AI Integration', 'Software Architecture', 'SaaS Development'],
+                address: {
+                    '@type': 'PostalAddress',
+                    'addressLocality': 'Lahore',
+                    'addressCountry': 'Pakistan'
+                }
+            },
+            {
+                '@type': 'WebSite',
+                '@id': 'https://tallha.dev/#website',
+                url: 'https://tallha.dev',
+                name: 'Tallha Mushtaq | Senior Architect Portfolio',
+                publisher: { '@id': 'https://tallha.dev/#person' },
+                description: 'Portfolio of Tallha Mushtaq, showcasing expertise in building scalable AI-driven SaaS applications.'
+            }
+        ]
     };
 
     return (

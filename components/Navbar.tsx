@@ -10,6 +10,8 @@ const COLORS = [
     'bg-blue-500 text-white',
     'bg-teal-500 text-black',
     'bg-indigo-500 text-white',
+    'bg-primary text-background',
+    'bg-secondary text-background',
 ];
 
 const MENU_LINKS = [
@@ -32,6 +34,10 @@ const MENU_LINKS = [
     {
         name: 'Blog',
         url: '/blog',
+    },
+    {
+        name: 'Contact',
+        url: '/#contact',
     },
 ];
 

@@ -7,8 +7,8 @@ import { ArrowLeft } from 'lucide-react';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-    title: 'Projects | Senior MERN Stack Developer Portfolio',
-    description: 'Explore a curated list of my professional projects, ranging from large-scale food ordering systems to AI-driven social platforms.',
+    title: 'Enterprise Projects | Scalable SaaS & AI Solutions',
+    description: 'A showcase of high-impact digital solutions, from enterprise food ordering systems to AI-driven fintech products, architected for scale and performance.',
 };
 
 const ProjectsPage = () => {

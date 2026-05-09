@@ -7,8 +7,8 @@ import OpenSourceCard from '../_components/OpenSourceCard';
 // export const dynamic = 'force-static'; // If we use force-static with fetch revalidate it might complain if fetch isn't statically analyzable or cached properly, but usually it works if fetch has revalidate. Let's just leave default behavior.
 
 export const metadata: Metadata = {
-    title: 'Open Source | Senior MERN Stack Developer Portfolio',
-    description: 'Explore my public repositories, open-source contributions, and experimental projects on GitHub.',
+    title: 'Open Source Contributions | Architecture & Tools',
+    description: 'Explore my public repositories, architectural patterns, and open-source contributions to the MERN and AI developer communities.',
 };
 
 const OpenSourcePage = async () => {

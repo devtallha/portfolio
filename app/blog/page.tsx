@@ -7,8 +7,8 @@ import { ArrowLeft } from 'lucide-react';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-    title: 'Blog | Insights from a Senior MERN Developer',
-    description: 'Explore articles on Next.js, React, Node.js, and System Architecture by Tallha Mushtaq.',
+    title: 'Technical Journal | Architecture, AI & MERN Insights',
+    description: 'In-depth articles and guides on software architecture, AI integration, and full-stack development by a Senior MERN Architect.',
 };
 
 const BlogPage = async () => {
