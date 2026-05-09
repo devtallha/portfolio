@@ -59,7 +59,7 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: typeof testimoni
 
                 {/* Review Text */}
                 <p className="text-foreground/80 leading-relaxed mb-8 italic">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                 </p>
             </div>
 

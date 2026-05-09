@@ -56,12 +56,12 @@ const Contact = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-anton leading-tight mb-6">
-                        Let's Build Something <span className="text-primary">That Scales.</span>
+                        Let&apos;s Build Something <span className="text-primary">That Scales.</span>
                     </h2>
 
                     <p className="text-foreground/70 text-lg mb-10 max-w-lg leading-relaxed">
                         I take on 2-3 new projects per month. If you have a
-                        serious product to build or scale, let's talk.
+                        serious product to build or scale, let&apos;s talk.
                     </p>
 
                     <div className="space-y-6 mb-12">
@@ -200,7 +200,7 @@ const Contact = () => {
                             >
                                 <div className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 font-semibold">
                                     <CheckCircle2 size={20} />
-                                    Message sent successfully! I'll get back to you soon.
+                                    Message sent successfully! I&apos;ll get back to you soon.
                                 </div>
                             </motion.div>
                         )}
