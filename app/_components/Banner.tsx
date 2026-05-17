@@ -7,11 +7,13 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { ArrowDown } from 'lucide-react';
 import React from 'react';
+import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Banner = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
+    const isUpwork = useUpworkMode();
 
     // move the content a little up on scroll
     useGSAP(
@@ -47,11 +49,8 @@ const Banner = () => {
                         <br /> <span className="ml-4">MERN STACK DEVELOPER</span>
                     </h1>
                     <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
-                        Hi! I&apos;m{' '}
-                        <span className="font-medium text-foreground">
-                            Tallha
-                        </span>
-                        . I specialize in architecting and leading high-performance full-stack web applications. I have built premium social media platforms, high-traffic food ordering systems, and AI-integrated SaaS products serving 15,000+ monthly active users.
+                        Senior MERN Stack Developer & Team Lead.<br />
+                        Currently building DineHome — Norway&apos;s 2nd largest food ordering platform.
                     </p>
                     <div className="mt-9 flex flex-wrap gap-4 slide-up-and-fade">
                         <Button
@@ -64,22 +63,24 @@ const Banner = () => {
                         >
                             Hire Me
                         </Button>
-                        <Button
-                            as="link"
-                            href={GENERAL_INFO.cvUrl}
-                            download="Tallha_Mushtaq_CV.pdf"
-                            variant="secondary"
-                            className="banner-button"
-                        >
-                            Download CV <ArrowDown size={20} />
-                        </Button>
+                        {!isUpwork && (
+                            <Button
+                                as="link"
+                                href={GENERAL_INFO.cvUrl}
+                                download="Tallha_Mushtaq.pdf"
+                                variant="secondary"
+                                className="banner-button"
+                            >
+                                Download CV <ArrowDown size={20} />
+                            </Button>
+                        )}
                     </div>
                 </div>
 
-                <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
+                <div className="md:absolute bottom-[10%] right-[4%] flex flex-wrap md:flex-col justify-center gap-4 md:gap-6 text-center md:text-right">
                     <div className="slide-up-and-fade">
                         <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            4+
+                            4.8+
                         </h2>
                         <p className="text-muted-foreground">
                             Years of Experience
@@ -87,10 +88,26 @@ const Banner = () => {
                     </div>
                     <div className="slide-up-and-fade">
                         <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            27+
+                            30+
                         </h2>
                         <p className="text-muted-foreground">
                             Completed Projects
+                        </p>
+                    </div>
+                    <div className="slide-up-and-fade">
+                        <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
+                            3
+                        </h2>
+                        <p className="text-muted-foreground">
+                            Countries Served
+                        </p>
+                    </div>
+                    <div className="slide-up-and-fade">
+                        <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
+                            15,000+
+                        </h2>
+                        <p className="text-muted-foreground">
+                            Monthly Users
                         </p>
                     </div>
                 </div>

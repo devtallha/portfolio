@@ -31,11 +31,11 @@ const robotoFlex = Roboto_Flex({
 export const metadata: Metadata = {
     metadataBase: new URL('https://tallha.dev'),
     title: {
-        default: 'Tallha Mushtaq | Senior Architect & AI-SaaS Specialist | MERN Stack Developer',
+        default: 'Tallha Mushtaq | Senior MERN Stack Developer | Remote | Norway & UAE Experience',
         template: '%s | Tallha Mushtaq',
     },
     description:
-        'Senior MERN Stack Architect and Top Rated Plus Upwork freelancer specializing in AI-integrated SaaS products, scalable architecture, and technical leadership. 4+ years, 15,000+ users served.',
+        "Senior MERN Stack Developer and Team Lead with 4.8+ years delivering remote solutions for international clients in Norway, UAE, and Pakistan. Currently leading development for DineHome — Norway's 2nd largest food ordering platform.",
     keywords: [
         'Senior MERN Stack Developer',
         'AI SaaS Developer',
@@ -47,6 +47,12 @@ export const metadata: Metadata = {
         'LLM Integration Developer',
         'React Developer for hire',
         'Software Architecture',
+        'Remote MERN Stack Developer',
+        'Senior Full Stack Developer Remote',
+        'MERN Developer Norway',
+        'MERN Developer UAE',
+        'DineHome Developer',
+        'Hire Remote Node.js Developer',
     ],
     authors: [{ name: 'Tallha Mushtaq', url: 'https://tallha.dev' }],
     creator: 'Tallha Mushtaq',
@@ -60,9 +66,9 @@ export const metadata: Metadata = {
         locale: 'en_US',
         url: 'https://tallha.dev',
         siteName: 'Tallha Mushtaq | Senior MERN Architect',
-        title: 'Tallha Mushtaq | Senior Architect & AI-SaaS Specialist',
+        title: 'Tallha Mushtaq | Senior MERN Developer | Norway & UAE Experience',
         description:
-            'Senior MERN Stack Architect specializing in AI-integrated SaaS, scalable architecture, and technical leadership. 4+ years leading MERN teams.',
+            'Senior MERN Stack Developer with 4.8+ years of remote delivery for international clients across Norway and UAE. Available for remote opportunities.',
         images: [
             {
                 url: '/logo/devtallha.png',

@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Briefcase, Mail, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react';
 import { GENERAL_INFO } from '@/lib/data';
 import SectionTitle from '@/components/SectionTitle';
+import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
 
 const Contact = () => {
+    const isUpwork = useUpworkMode();
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [formData, setFormData] = useState({
         name: '',
@@ -14,6 +16,8 @@ const Contact = () => {
         budget: '<$1k',
         message: '',
     });
+
+    if (isUpwork) return null;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -85,15 +89,17 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/30 transition-colors">
-                            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <Mail size={24} />
+                        {!isUpwork && (
+                            <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/30 transition-colors">
+                                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                    <Mail size={24} />
+                                </div>
+                                <div>
+                                    <p className="text-sm text-muted-foreground">Direct email</p>
+                                    <a href={`mailto:${GENERAL_INFO.email}`} className="font-semibold hover:text-primary transition-colors">{GENERAL_INFO.email}</a>
+                                </div>
                             </div>
-                            <div>
-                                <p className="text-sm text-muted-foreground">Direct email</p>
-                                <a href={`mailto:${GENERAL_INFO.email}`} className="font-semibold hover:text-primary transition-colors">{GENERAL_INFO.email}</a>
-                            </div>
-                        </div>
+                        )}
                     </div>
 
                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/5 border border-primary/20">

@@ -21,7 +21,6 @@ export const GENERAL_INFO = {
 };
 
 export const SOCIAL_LINKS = [
-    { name: 'portfolio', url: 'https://tallha.dev' },
     { name: 'github', url: 'https://github.com/devtallha' },
     { name: 'linkedin', url: 'https://www.linkedin.com/in/tallha-mushtaq/' },
 ];
@@ -303,20 +302,20 @@ export const PROJECTS: IProject[] = [
 export const MY_EXPERIENCE = [
     {
         title: 'Technical Team Lead & Senior MERN Stack Developer',
-        company: 'Hello World Technologies · Lahore, Pakistan',
+        company: 'Hello World Technologies · Remote',
         duration: 'Sep 2024 - Present',
-        description: 'Leading cross-functional engineering teams to deliver high-impact digital solutions. I am responsible for architecting scalable backend systems using NestJS and Node.js, designing responsive frontends with Next.js and Tailwind CSS, and overseeing the integration of AI-driven features into SaaS products. I mentor junior developers, conduct code reviews, and drive technical strategy to ensure best practices in performance, security, and maintainability.',
+        description: 'Outsourced to DineHome — Norway\'s 2nd largest food ordering platform. Leading a team of 5 engineers to architect and deliver a high-traffic platform serving 15,000+ monthly active users across Norway.\n\n→ Reduced load times by 38% via Redis caching, lazy loading, and query optimization\n→ Cut production bugs by 30% through code reviews and pair programming\n→ Reduced deployment issues by 40% through CI/CD pipeline implementation\n→ Own end-to-end architecture decisions, stack selection, and engineering best practices\n\nStack: Next.js, NestJS, Node.js, MongoDB, Redis, RabbitMQ, AWS, Docker, TypeScript',
     },
     {
         title: 'Project Team Lead & MERN Stack Developer',
-        company: 'DruDots Technologies · Lahore, Pakistan',
+        company: 'DruDots Technologies · Remote',
         duration: 'Jul 2023 - Sep 2024',
-        description: 'Managed the full-stack development of complex web applications from ideation to deployment. I led the migration of legacy systems to modern MERN architecture, implemented real-time communication features, and optimized database performance for high-traffic platforms. My role involved close collaboration with product managers and designers to translate business requirements into efficient technical implementations.',
+        description: 'Led development for a social platform for healthcare professionals built for an international client.\n\n→ Scaled to 8,000+ active users across concurrent client projects\n→ Improved performance by 35% through backend API and frontend rendering optimization\n→ Designed real-time backend architecture using WebSockets for live feeds and messaging\n→ Delivered consistently on-time for all international client commitments\n\nStack: React, NestJS, Node.js, MongoDB, PostgreSQL, WebSockets, Docker, TypeScript',
     },
     {
         title: 'MERN Stack Developer',
-        company: 'ProNode Technologies · Lahore, Pakistan',
+        company: 'ProNode Technologies · Remote',
         duration: 'Nov 2021 - Jul 2023',
-        description: 'Developed and maintained various client-side and server-side components for web applications. I focused on building reusable UI components, integrating third-party APIs, and managing state across complex application flows. I gained significant experience in MongoDB schema design and RESTful API development, contributing to the successful launch of several e-commerce and social networking projects.',
+        description: 'Outsourced to Pangiah — a UAE-based technology company serving the Dubai market. Delivered two full SaaS products from scratch.\n\n→ TheTutor.me — Online tutoring platform with video sessions, student-tutor matching, scheduling, and Stripe payment integration\n→ iSalonee — Multi-tenant SaaS salon & spa booking platform with CRM and staff scheduling for Dubai\n→ Contributed to 15+ production deployments across complete SDLC\n→ Reduced team defects by 20% through active code reviews and reusable component development\n\nStack: React, Node.js, Express.js, MongoDB, REST APIs, TypeScript',
     },
 ];

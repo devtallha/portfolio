@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
+import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
 
 const COLORS = [
     'bg-yellow-500 text-black',
@@ -44,6 +45,15 @@ const MENU_LINKS = [
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
+    const isUpwork = useUpworkMode();
+
+    const socialLinks = isUpwork 
+        ? SOCIAL_LINKS.filter(link => link.name.toLowerCase() !== 'linkedin')
+        : SOCIAL_LINKS;
+
+    const menuLinks = isUpwork
+        ? MENU_LINKS.filter(link => link.name.toLowerCase() !== 'contact')
+        : MENU_LINKS;
 
     return (
         <>
@@ -108,7 +118,7 @@ const Navbar = () => {
                                 SOCIAL
                             </p>
                             <ul className="space-y-3">
-                                {SOCIAL_LINKS.map((link) => (
+                                {socialLinks.map((link) => (
                                     <li key={link.name}>
                                         <a
                                             href={link.url}
@@ -127,7 +137,7 @@ const Navbar = () => {
                                 MENU
                             </p>
                             <ul className="space-y-3">
-                                {MENU_LINKS.map((link, idx) => (
+                                {menuLinks.map((link, idx) => (
                                     <li key={link.name}>
                                         <button
                                             onClick={() => {
@@ -156,12 +166,14 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="w-full max-w-[300px] mx-8 sm:mx-auto">
-                    <p className="text-muted-foreground mb-4">GET IN TOUCH</p>
-                    <a href={`mailto:${GENERAL_INFO.email}`}>
-                        {GENERAL_INFO.email}
-                    </a>
-                </div>
+                {!isUpwork && (
+                    <div className="w-full max-w-[300px] mx-8 sm:mx-auto">
+                        <p className="text-muted-foreground mb-4">GET IN TOUCH</p>
+                        <a href={`mailto:${GENERAL_INFO.email}`}>
+                            {GENERAL_INFO.email}
+                        </a>
+                    </div>
+                )}
             </div>
         </>
     );

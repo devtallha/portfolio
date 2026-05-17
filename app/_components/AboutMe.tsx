@@ -36,14 +36,10 @@ const AboutMe = () => {
                     
                     <div className="space-y-6 text-foreground/80 text-lg leading-relaxed mb-10">
                         <p>
-                            With 4+ years leading MERN stack teams, I&apos;ve shipped food platforms, 
-                            AI SaaS products, healthcare apps, and fintech tools — all designed 
-                            to scale without breaking. 
+                            With clients in Norway, UAE, and Pakistan, I&apos;ve shipped food platforms, AI SaaS products, healthcare apps, and fintech tools — all designed to scale without breaking.
                         </p>
                         <p>
-                            I specialize in the gap between &quot;it works&quot; and &quot;it works at scale.&quot; 
-                            When you hire me, you&apos;re not getting a developer. 
-                            You&apos;re getting an architect who owns the outcome.
+                            I specialize in the gap between &quot;it works&quot; and &quot;it works at scale.&quot; When you hire me, you&apos;re not getting a developer. You&apos;re getting an architect who owns the outcome.
                         </p>
                     </div>
 

@@ -1,7 +1,13 @@
+'use client';
 import { GENERAL_INFO } from '@/lib/data';
 import React from 'react';
+import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
 
 const StickyEmail = () => {
+    const isUpwork = useUpworkMode();
+
+    if (isUpwork) return null;
+
     return (
         <div className="max-xl:hidden fixed bottom-32 left-0 block">
             <a
