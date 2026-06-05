@@ -2,7 +2,7 @@ import { getBlogPostBySlug, getBlogPosts } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { components } from '../_components/MDXComponents';
-import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { Metadata } from 'next';

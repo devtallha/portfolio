@@ -23,7 +23,7 @@ const CustomCursor = () => {
                 duration: 0.25,
                 opacity: 1,
             });
-        }) as unknown as (e: MouseEvent) => void;
+        }) as unknown as (_e: MouseEvent) => void;
 
         window.addEventListener('mousemove', handleMouseMove);
 

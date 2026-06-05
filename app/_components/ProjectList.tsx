@@ -4,7 +4,7 @@ import { PROJECTS } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React, { useRef, useState, MouseEvent } from 'react';
+import React, { useRef, useState } from 'react';
 import Project from './Project';
 import TransitionLink from '@/components/TransitionLink';
 
@@ -61,7 +61,7 @@ const ProjectList = () => {
                     duration: 1,
                     opacity: 1,
                 });
-            }) as unknown as (e: MouseEvent) => void;
+            }) as unknown as (_e: MouseEvent) => void;
 
             window.addEventListener('mousemove', handleMouseMove);
 
