@@ -1,12 +1,7 @@
-import AboutMe from './_components/AboutMe';
 import Banner from './_components/Banner';
-import Experiences from './_components/Experiences';
-import Skills from './_components/Skills';
-import ProjectList from './_components/ProjectList';
+import BelowFold from './_components/BelowFold';
 import OpenSourcePreview from './_components/OpenSourcePreview';
 import BlogPreview from './_components/BlogPreview';
-import Testimonials from './_components/Testimonials';
-import Contact from './_components/Contact';
 import { Metadata } from 'next';
 
 export const dynamic = 'force-static';
@@ -18,16 +13,11 @@ export const metadata: Metadata = {
 
 export default async function Home() {
     return (
-        <div className="page-">
+        <div>
             <Banner />
-            <AboutMe />
-            <Skills />
-            <Experiences />
-            <ProjectList />
-            <Testimonials />
+            <BelowFold />
             <OpenSourcePreview />
             <BlogPreview />
-            <Contact />
         </div>
     );
 }

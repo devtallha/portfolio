@@ -47,13 +47,6 @@ export default {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
-                chart: {
-                    '1': 'hsl(var(--chart-1))',
-                    '2': 'hsl(var(--chart-2))',
-                    '3': 'hsl(var(--chart-3))',
-                    '4': 'hsl(var(--chart-4))',
-                    '5': 'hsl(var(--chart-5))',
-                },
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -64,15 +57,22 @@ export default {
                 anton: ['var(--font-anton)'],
                 'roboto-flex': ['var(--font-roboto-flex)'],
             },
-            padding: {
-                section: '250px',
+            fontSize: {
+                /* Editorial display sizes */
+                'display-xl': ['clamp(4rem, 10vw, 9rem)', { lineHeight: '0.92', letterSpacing: '-0.02em' }],
+                'display-lg': ['clamp(3rem, 7vw, 6rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
+                'display-md': ['clamp(2rem, 4vw, 3.5rem)', { lineHeight: '1', letterSpacing: '-0.01em' }],
+            },
+            spacing: {
+                section: '7rem',
+                'section-sm': '4rem',
             },
             container: {
                 center: true,
-                padding: '1rem',
+                padding: '1.5rem',
                 screens: {
-                    xl: '1148px',
-                    '2xl': '1148px',
+                    xl: '1200px',
+                    '2xl': '1200px',
                 },
             },
             transitionDuration: {
@@ -81,7 +81,16 @@ export default {
             screens: {
                 xs: '420px',
             },
+            letterSpacing: {
+                widest: '0.2em',
+                editorial: '0.08em',
+            },
         },
     },
-    plugins: [tailwindAnimate],
+    plugins: [
+        tailwindAnimate,
+        require('@tailwindcss/typography')({
+            className: 'prose',
+        }),
+    ],
 } satisfies Config;

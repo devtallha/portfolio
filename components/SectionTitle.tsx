@@ -1,46 +1,21 @@
-import { ReactNode } from 'react';
-import { SectionFlower } from './icons';
 import { cn } from '@/lib/utils';
 
 interface Props {
-    icon?: ReactNode;
-    className?: string;
-    classNames?: {
-        container?: string;
-        title?: string;
-        icon?: string;
-    };
     title: string;
+    className?: string;
+    index?: string;
 }
 
-const SectionTitle = ({ icon, title, className, classNames }: Props) => {
+const SectionTitle = ({ title, className, index }: Props) => {
     return (
-        <div
-            className={cn(
-                'flex items-center gap-4 mb-10',
-                className,
-                classNames?.container,
-            )}
-        >
-            {icon ? (
-                icon
-            ) : (
-                <SectionFlower
-                    width={25}
-                    className={cn(
-                        'animate-spin duration-7000',
-                        classNames?.icon,
-                    )}
-                />
-            )}
-            <h2
-                className={cn(
-                    'text-xl uppercase leading-none',
-                    classNames?.title,
+        <div className={cn('mb-12 md:mb-16', className)}>
+            <div className="flex items-center gap-4 mb-4">
+                {index && (
+                    <span className="section-label tabular-nums">{index}</span>
                 )}
-            >
-                {title}
-            </h2>
+                <div className="flex-1 rule" />
+            </div>
+            <h2 className="font-anton text-display-md uppercase">{title}</h2>
         </div>
     );
 };

@@ -28,7 +28,7 @@ const ParticleBackground = () => {
                 opacity: 0,
                 repeat: -1,
                 ease: 'none',
-                delay: Math.random() * -20, // Start at random progress
+                delay: Math.random() * -20,
             });
         });
     }, []);
@@ -41,16 +41,7 @@ const ParticleBackground = () => {
                     ref={(el) => {
                         if (el) particlesRef.current[i] = el;
                     }}
-                    className="absolute rounded-full bg-white opacity-0 md:block hidden"
-                />
-            ))}
-            {[...Array(30)].map((_, i) => (
-                <div
-                    key={`mobile-${i}`}
-                    ref={(el) => {
-                        if (el) particlesRef.current[i + 80] = el;
-                    }}
-                    className="absolute rounded-full bg-white opacity-0"
+                    className="absolute rounded-full bg-foreground opacity-0"
                 />
             ))}
         </div>

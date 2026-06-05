@@ -5,7 +5,7 @@ export const GENERAL_INFO = {
     fullName: 'Tallha Mushtaq',
     firstName: 'Tallha',
     lastName: 'Mushtaq',
-    heading: 'Senior MERN Stack Developer',
+    heading: 'Full-Stack Engineer & Team Lead',
     location: 'Pakistan',
     phoneNumber: '+923230337708',
     portfolioUrl: 'https://tallha.dev',
@@ -17,7 +17,6 @@ export const GENERAL_INFO = {
 
     upworkProfile:
         'https://www.upwork.com/freelancers/~01e8066189eb6dd122?mp_source=share',
-    cvUrl: '/resume/Tallha_Mushtaq_CV.pdf',
 };
 
 export const SOCIAL_LINKS = [

@@ -1,53 +1,70 @@
 import { getBlogPosts } from '@/lib/blog';
 import BlogCard from './_components/BlogCard';
 import { Metadata } from 'next';
-import Link from 'next/link';
+import TransitionLink from '@/components/TransitionLink';
 import { ArrowLeft } from 'lucide-react';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-    title: 'Technical Journal | Architecture, AI & MERN Insights',
-    description: 'In-depth articles and guides on software architecture, AI integration, and full-stack development by a Senior MERN Architect.',
+    title: 'Technical Journal | Architecture, AI & Full-Stack Insights',
+    description: 'In-depth articles on software architecture, AI integration, and full-stack development by Tallha Mushtaq.',
+    alternates: {
+        canonical: 'https://tallha.dev/blog',
+    },
+    openGraph: {
+        title: 'Technical Journal | Tallha Mushtaq',
+        description: 'In-depth articles on software architecture, AI integration, and full-stack development.',
+        type: 'website',
+        url: 'https://tallha.dev/blog',
+        images: [{ url: '/logo/devtallha.png', width: 1200, height: 630, alt: 'Tallha Mushtaq Journal' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Technical Journal | Tallha Mushtaq',
+        description: 'In-depth articles on software architecture, AI integration, and full-stack development.',
+        images: ['/logo/devtallha.png'],
+    },
 };
 
 const BlogPage = async () => {
     const posts = await getBlogPosts();
 
     return (
-        <section className="min-h-screen py-24 px-6 md:px-12 lg:px-24">
-            <div className="max-w-7xl mx-auto">
-                <Link 
-                    href="/" 
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-blue-500 transition-colors mb-12 group font-roboto-flex"
+        <main className="min-h-screen">
+            <div className="container py-12">
+                <TransitionLink
+                    back
+                    href="/"
+                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 mb-16 group font-roboto-flex text-sm"
                 >
-                    <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform duration-300" />
                     Back to Home
-                </Link>
+                </TransitionLink>
 
-                <header className="mb-16">
-                    <h1 className="text-6xl md:text-8xl font-anton uppercase mb-6 tracking-tighter">
-                        The <span className="text-blue-500">Journal</span>
+                <header className="mb-16 border-b border-border pb-12">
+                    <div className="rule mb-6" />
+                    <h1 className="font-anton text-display-xl uppercase leading-[0.9]">
+                        The <span className="text-primary">Journal</span>
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl font-roboto-flex">
-                        Sharing my thoughts on software architecture, modern web technologies, 
-                        and building scalable digital solutions.
+                    <p className="text-foreground/50 mt-6 max-w-xl font-roboto-flex text-base leading-relaxed">
+                        Thoughts on software architecture, modern web technologies, and building at scale.
                     </p>
                 </header>
 
                 {posts.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
                         {posts.map((post) => (
-                            <BlogCard key={post.slug} post={post} />
+                            <div key={post.slug} className="bg-background">
+                                <BlogCard post={post} />
+                            </div>
                         ))}
                     </div>
                 ) : (
-                    <div className="text-center py-20">
-                        <p className="text-2xl text-muted-foreground">Writing in progress... check back soon!</p>
-                    </div>
+                    <p className="text-muted-foreground py-20 text-center">Writing in progress — check back soon.</p>
                 )}
             </div>
-        </section>
+        </main>
     );
 };
 

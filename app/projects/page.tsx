@@ -7,8 +7,24 @@ import { ArrowLeft } from 'lucide-react';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-    title: 'Enterprise Projects | Scalable SaaS & AI Solutions',
-    description: 'A showcase of high-impact digital solutions, from enterprise food ordering systems to AI-driven fintech products, architected for scale and performance.',
+    title: 'Projects | Scalable SaaS & AI Solutions',
+    description: 'High-impact digital solutions across food tech, fintech, healthcare, and AI — architected for scale and performance by Tallha Mushtaq.',
+    alternates: {
+        canonical: 'https://tallha.dev/projects',
+    },
+    openGraph: {
+        title: 'Projects | Tallha Mushtaq',
+        description: 'High-impact digital solutions across food tech, fintech, healthcare, and AI.',
+        type: 'website',
+        url: 'https://tallha.dev/projects',
+        images: [{ url: '/logo/devtallha.png', width: 1200, height: 630, alt: 'Tallha Mushtaq Projects' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Projects | Tallha Mushtaq',
+        description: 'High-impact digital solutions across food tech, fintech, healthcare, and AI.',
+        images: ['/logo/devtallha.png'],
+    },
 };
 
 const ProjectsPage = () => {

@@ -2,35 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ─── Light theme (default) ─── */
 @layer base {
     :root {
-        --background: 0 0% 13%;
-        --background-light: 0 0% 19%;
-        --foreground: 0 0% 87%;
+        --background: 0 0% 98%;
+        --background-light: 0 0% 93%;
+        --foreground: 0 0% 8%;
 
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
+        --primary: 33 100% 45%;
+        --primary-foreground: 0 0% 100%;
 
-        --primary: 140 100% 47%;
-        --primary-foreground: 0 0% 13%;
-        --secondary: 193 100% 47%;
-        --secondary-foreground: 0 0% 13%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 71%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 8%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 8%;
+
+        --secondary: 0 0% 88%;
+        --secondary-foreground: 0 0% 8%;
+        --muted: 0 0% 93%;
+        --muted-foreground: 0 0% 32%;
+
+        --accent: 0 0% 93%;
+        --accent-foreground: 0 0% 8%;
+        --destructive: 0 72% 51%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 24%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --border: 0 0% 85%;
+        --input: 0 0% 93%;
+        --ring: 33 100% 45%;
+        --radius: 4px;
+    }
+}
+
+/* ─── Dark theme ─── */
+@layer base {
+    .dark {
+        --background: 0 0% 4%;
+        --background-light: 0 0% 10%;
+        --foreground: 0 0% 92%;
+
+        --primary: 33 100% 50%;
+        --primary-foreground: 0 0% 4%;
+
+        --card: 0 0% 7%;
+        --card-foreground: 0 0% 92%;
+        --popover: 0 0% 7%;
+        --popover-foreground: 0 0% 92%;
+
+        --secondary: 0 0% 15%;
+        --secondary-foreground: 0 0% 92%;
+        --muted: 0 0% 10%;
+        --muted-foreground: 0 0% 48%;
+
+        --accent: 0 0% 10%;
+        --accent-foreground: 0 0% 92%;
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14%;
+        --input: 0 0% 10%;
+        --ring: 33 100% 50%;
     }
 }
 
@@ -38,20 +75,60 @@
     ::-webkit-scrollbar {
         display: none;
     }
+
     * {
         @apply border-border !cursor-none;
     }
+
     body {
         @apply bg-background text-foreground font-roboto-flex;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+        background-color: hsl(var(--primary) / 0.2);
+        color: hsl(var(--foreground));
     }
 }
 
 @layer components {
-    .grid {
-        @apply gap-[25px];
-    }
-
     .markdown-text ul {
         @apply pl-5 mt-2 list-disc;
+    }
+
+    /* Editorial horizontal rule */
+    .rule {
+        @apply border-t border-border w-full;
+    }
+
+    /* Section counter label */
+    .section-label {
+        @apply text-xs font-roboto-flex uppercase tracking-[0.2em] text-muted-foreground;
+    }
+
+    /* bg-border utility for gap-px grid separators */
+    .bg-border {
+        background-color: hsl(var(--border));
+    }
+
+    /* MDX prose — amber accent overrides */
+    .prose-amber a {
+        @apply text-primary no-underline hover:underline;
+    }
+    .prose-amber strong {
+        @apply text-foreground;
+    }
+    .prose-amber h1,
+    .prose-amber h2,
+    .prose-amber h3,
+    .prose-amber h4 {
+        @apply font-anton uppercase text-foreground;
+    }
+    .prose-amber code:not(pre code) {
+        @apply bg-background-light text-primary px-1.5 py-0.5 rounded-sm text-sm;
+    }
+    .prose-amber blockquote {
+        @apply border-l-primary text-foreground/70 not-italic;
     }
 }

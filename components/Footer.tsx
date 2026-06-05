@@ -1,36 +1,36 @@
-import { GENERAL_INFO } from '@/lib/data';
+import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
 
-const Footer = async () => {
+const Footer = () => {
     return (
-        <footer className="text-center pb-10 border-t border-white/5 pt-10" id="footer">
-            <div className="container">
+        <footer className="border-t border-border py-10" id="footer">
+            <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
+                <p className="font-anton text-lg tracking-tight">
+                    <span className="text-primary">Tallha</span> Mushtaq
+                </p>
 
-                <div className="flex justify-center gap-6 mb-10">
-                    <a 
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(GENERAL_INFO.portfolioUrl)}`}
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-blue-500 transition-colors uppercase text-xs tracking-widest font-medium"
+                <div className="flex items-center gap-8">
+                    {SOCIAL_LINKS.map(link => (
+                        <a
+                            key={link.name}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="section-label hover:text-primary transition-colors duration-300 capitalize"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+                    <a
+                        href={`mailto:${GENERAL_INFO.email}`}
+                        className="section-label hover:text-primary transition-colors duration-300"
                     >
-                        Share on LinkedIn
-                    </a>
-                    <a 
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(GENERAL_INFO.portfolioUrl)}&text=Check out ${GENERAL_INFO.fullName}'s portfolio!`}
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-blue-400 transition-colors uppercase text-xs tracking-widest font-medium"
-                    >
-                        Share on Twitter
-                    </a>
-                    <a 
-                        href={`https://wa.me/?text=${encodeURIComponent('Check out ' + GENERAL_INFO.fullName + '\'s portfolio: ' + GENERAL_INFO.portfolioUrl)}`}
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-green-500 transition-colors uppercase text-xs tracking-widest font-medium"
-                    >
-                        Share on WhatsApp
+                        Email
                     </a>
                 </div>
+
+                <p className="section-label">
+                    © {new Date().getFullYear()} — All rights reserved
+                </p>
             </div>
         </footer>
     );

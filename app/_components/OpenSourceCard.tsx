@@ -7,17 +7,17 @@ const OpenSourceCard = ({ repo }: { repo: GithubRepo }) => {
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col h-full bg-background-light/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-500"
+            className="group flex flex-col h-full bg-background-light/50 border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-500"
         >
             <div className="p-8 flex flex-col grow">
                 <div className="flex items-center gap-4 mb-4 text-xs font-medium text-muted-foreground uppercase tracking-widest">
                     <span className="flex items-center gap-1.5">
-                        <Star size={12} className="text-primary" />
+                        <Star size={12} className="text-primary" aria-hidden="true" />
                         {repo.stargazers_count} Stars
                     </span>
                     {repo.language && (
                         <span className="flex items-center gap-1.5">
-                            <BookOpen size={12} className="text-primary" />
+                            <BookOpen size={12} className="text-primary" aria-hidden="true" />
                             {repo.language}
                         </span>
                     )}
@@ -31,15 +31,15 @@ const OpenSourceCard = ({ repo }: { repo: GithubRepo }) => {
                     {repo.description || 'No description provided.'}
                 </p>
 
-                <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
+                <div className="mt-auto flex items-center justify-between pt-6 border-t border-border">
                     <div className="flex gap-2 flex-wrap max-w-[80%]">
                         {repo.topics.slice(0, 3).map(topic => (
-                            <span key={topic} className="px-2.5 py-1 rounded-full bg-white/5 text-[10px] uppercase tracking-tighter text-muted-foreground">
+                            <span key={topic} className="px-2.5 py-1 rounded-full bg-muted text-xs uppercase tracking-tighter text-muted-foreground">
                                 {topic}
                             </span>
                         ))}
                     </div>
-                    <div className="size-10 shrink-0 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
+                    <div className="size-10 shrink-0 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
                         <MoveUpRight size={16} />
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Briefcase, Mail, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
 import { GENERAL_INFO } from '@/lib/data';
 import SectionTitle from '@/components/SectionTitle';
 import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
@@ -24,11 +24,9 @@ const Contact = () => {
         setStatus('loading');
 
         try {
-            const response = await fetch('https://formspree.io/f/xgodngpb', {
+            const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
 
@@ -40,142 +38,142 @@ const Contact = () => {
                 setStatus('error');
                 setTimeout(() => setStatus('idle'), 5000);
             }
-        } catch (error) {
-            console.error('Submission error:', error);
+        } catch {
             setStatus('error');
             setTimeout(() => setStatus('idle'), 5000);
         }
     };
 
+    const inputClass = 'w-full px-0 py-3 bg-transparent border-0 border-b border-border focus:border-primary outline-none transition-colors duration-300 text-foreground placeholder:text-muted-foreground/40 font-roboto-flex';
+
     return (
-        <section id="contact" className="py-24 px-4 container mx-auto">
-            <SectionTitle title="Get In Touch" />
+        <section id="contact" className="py-section border-t border-border">
+            <div className="container">
+                <SectionTitle title="Get In Touch" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mt-12">
-                {/* Left Column */}
-                <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-anton leading-tight mb-6">
-                        Let&apos;s Build Something <span className="text-primary">That Scales.</span>
-                    </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+                    {/* Left */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h2 className="font-anton text-display-md uppercase leading-tight mb-8">
+                            Let&apos;s build something<br />
+                            <span className="text-primary">that scales.</span>
+                        </h2>
 
-                    <p className="text-foreground/70 text-lg mb-10 max-w-lg leading-relaxed">
-                        I take on 2-3 new projects per month. If you have a
-                        serious product to build or scale, let&apos;s talk.
-                    </p>
+                        <p className="text-foreground/55 text-base leading-relaxed mb-12 max-w-sm font-roboto-flex">
+                            I take on 2–3 new projects per month. If you have a serious product to build or scale, let&apos;s talk.
+                        </p>
 
-                    <div className="space-y-6 mb-12">
-                        <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/30 transition-colors">
-                            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <Calendar size={24} />
+                        <div className="space-y-8">
+                            <div className="border-t border-border pt-6">
+                                <p className="section-label mb-2">Consultation</p>
+                                <a
+                                    href="https://calendly.com/devtallha"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-roboto-flex text-foreground/70 hover:text-primary transition-colors duration-300"
+                                >
+                                    Book a free 30-min call →
+                                </a>
                             </div>
-                            <div>
-                                <p className="text-sm text-muted-foreground">Free 30-min consultation</p>
-                                <a href="https://calendly.com/devtallha" target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors">Book on Calendly</a>
+                            <div className="border-t border-border pt-6">
+                                <p className="section-label mb-2">Upwork</p>
+                                <a
+                                    href={GENERAL_INFO.upworkProfile}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-roboto-flex text-foreground/70 hover:text-primary transition-colors duration-300"
+                                >
+                                    Top Rated Plus Profile →
+                                </a>
+                            </div>
+                            <div className="border-t border-border pt-6">
+                                <p className="section-label mb-2">Email</p>
+                                <a
+                                    href={`mailto:${GENERAL_INFO.email}`}
+                                    className="font-roboto-flex text-foreground/70 hover:text-primary transition-colors duration-300"
+                                >
+                                    {GENERAL_INFO.email}
+                                </a>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/30 transition-colors">
-                            <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
-                                <Briefcase size={24} />
-                            </div>
-                            <div>
-                                <p className="text-sm text-muted-foreground">Available on Upwork</p>
-                                <a href={GENERAL_INFO.upworkProfile} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-secondary transition-colors">Top Rated Plus Profile</a>
-                            </div>
+                        <div className="flex items-center gap-3 mt-10">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                            </span>
+                            <span className="section-label text-primary/80">Available for new projects</span>
                         </div>
+                    </motion.div>
 
-                        {!isUpwork && (
-                            <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/30 transition-colors">
-                                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                    <Mail size={24} />
-                                </div>
+                    {/* Right — Form */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.15 }}
+                        className="relative"
+                    >
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            <div className="grid grid-cols-2 gap-6">
                                 <div>
-                                    <p className="text-sm text-muted-foreground">Direct email</p>
-                                    <a href={`mailto:${GENERAL_INFO.email}`} className="font-semibold hover:text-primary transition-colors">{GENERAL_INFO.email}</a>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/5 border border-primary/20">
-                        <span className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                        </span>
-                        <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                            Currently accepting new projects
-                        </span>
-                    </div>
-                </motion.div>
-
-                {/* Right Column - Form */}
-                <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="relative"
-                >
-                    <div className="p-8 md:p-10 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-2xl">
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-foreground/70 ml-1">Name</label>
+                                    <label htmlFor="contact-name" className="section-label block mb-3">Name</label>
                                     <input
+                                        id="contact-name"
                                         required
                                         name="name"
                                         type="text"
                                         placeholder="John Doe"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 outline-none transition-all placeholder:text-muted-foreground/30"
+                                        className={inputClass}
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-foreground/70 ml-1">Email</label>
+                                <div>
+                                    <label htmlFor="contact-email" className="section-label block mb-3">Email</label>
                                     <input
+                                        id="contact-email"
                                         required
                                         name="email"
                                         type="email"
                                         placeholder="john@example.com"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 outline-none transition-all placeholder:text-muted-foreground/30"
+                                        className={inputClass}
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     />
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-foreground/70 ml-1">Project Budget</label>
-                                <div className="relative">
-                                    <select
-                                        name="budget"
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 outline-none transition-all appearance-none cursor-pointer"
-                                        value={formData.budget}
-                                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                                    >
-                                        <option value="<$1k" className="bg-[#1a1a1a] text-foreground">{'<$1k'}</option>
-                                        <option value="$1k-$5k" className="bg-[#1a1a1a] text-foreground">$1k-$5k</option>
-                                        <option value="$5k-$20k" className="bg-[#1a1a1a] text-foreground">$5k-$20k</option>
-                                        <option value="$20k+" className="bg-[#1a1a1a] text-foreground">$20k+</option>
-                                    </select>
-                                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none w-4 h-4" />
-                                </div>
+                            <div>
+                                <label htmlFor="contact-budget" className="section-label block mb-3">Project Budget</label>
+                                <select
+                                    id="contact-budget"
+                                    name="budget"
+                                    className={`${inputClass} cursor-pointer`}
+                                    value={formData.budget}
+                                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                                >
+                                    <option value="<$1k">{'<$1k'}</option>
+                                    <option value="$1k-$5k">$1k–$5k</option>
+                                    <option value="$5k-$20k">$5k–$20k</option>
+                                    <option value="$20k+">$20k+</option>
+                                </select>
                             </div>
 
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-foreground/70 ml-1">Message</label>
+                            <div>
+                                <label htmlFor="contact-message" className="section-label block mb-3">Message</label>
                                 <textarea
+                                    id="contact-message"
                                     required
                                     name="message"
                                     rows={4}
-                                    placeholder="Tell me about your project goals..."
-                                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none placeholder:text-muted-foreground/30"
+                                    placeholder="Tell me about your project..."
+                                    className={`${inputClass} resize-none`}
                                     value={formData.message}
                                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                 />
@@ -184,47 +182,42 @@ const Contact = () => {
                             <button
                                 disabled={status === 'loading'}
                                 type="submit"
-                                className="w-full py-4 rounded-xl bg-primary text-background font-bold text-lg hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                className="w-full py-4 border border-primary text-primary font-anton uppercase tracking-wider text-sm hover:bg-primary hover:text-black transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
                                 {status === 'loading' ? (
-                                    <div className="w-6 h-6 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+                                    <span className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
                                 ) : (
                                     'Send Message'
                                 )}
                             </button>
                         </form>
-                    </div>
 
-                    {/* Success/Error Toast */}
-                    <AnimatePresence>
-                        {status === 'success' && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                className="absolute -bottom-20 left-0 right-0 flex justify-center z-50"
-                            >
-                                <div className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 font-semibold">
-                                    <CheckCircle2 size={20} />
-                                    Message sent successfully! I&apos;ll get back to you soon.
-                                </div>
-                            </motion.div>
-                        )}
-                        {status === 'error' && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                className="absolute -bottom-20 left-0 right-0 flex justify-center z-50"
-                            >
-                                <div className="bg-red-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 font-semibold">
-                                    <AlertCircle size={20} />
+                        <AnimatePresence>
+                            {status === 'success' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    className="mt-4 flex items-center gap-3 text-sm text-green-400 font-roboto-flex"
+                                >
+                                    <CheckCircle2 size={16} />
+                                    Message sent — I&apos;ll get back to you soon.
+                                </motion.div>
+                            )}
+                            {status === 'error' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    className="mt-4 flex items-center gap-3 text-sm text-red-400 font-roboto-flex"
+                                >
+                                    <AlertCircle size={16} />
                                     Something went wrong. Please try again.
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </motion.div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

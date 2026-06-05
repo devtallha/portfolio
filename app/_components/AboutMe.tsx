@@ -5,98 +5,80 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import SectionTitle from '@/components/SectionTitle';
 
-const milestones = [
-    { year: '2021', title: 'First Lead Role' },
-    { year: '2023', title: 'Team Lead' },
-    { year: '2024', title: 'Technical Lead' },
-    { year: '2025', title: 'Top Rated Plus Upwork' },
-];
-
-const keySkills = [
-    'MERN Stack', 'Next.js 15', 'Scalable Architecture', 
-    'AI Integration', 'Fintech', 'Healthcare Systems'
+const highlights = [
+    { value: '5+', label: 'Years Building' },
+    { value: '30+', label: 'Projects Shipped' },
+    { value: 'Top Rated+', label: 'Upwork Status' },
 ];
 
 const AboutMe = () => {
     return (
-        <section className="py-24 px-4 container mx-auto overflow-hidden" id="about-me">
+        <section className="py-24 container overflow-hidden" id="about-me">
             <SectionTitle title="About Me" />
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-12">
-                {/* Left Column - Text content */}
+
+            <div className="mt-16 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16 items-start">
+                {/* Left — Story */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 0.7 }}
+                    className="space-y-8"
                 >
-                    <h3 className="text-3xl md:text-4xl font-anton mb-6 leading-tight">
-                        I build the systems that keep your product <span className="text-primary">alive at 3 AM.</span>
+                    <h3 className="text-4xl md:text-5xl font-anton leading-[1.1]">
+                        I build the software.<br />
+                        <span className="text-primary">I also build the team.</span>
                     </h3>
-                    
-                    <div className="space-y-6 text-foreground/80 text-lg leading-relaxed mb-10">
+
+                    <div className="space-y-5 text-foreground/70 text-[1.05rem] leading-relaxed">
                         <p>
-                            With clients in Norway, UAE, and Pakistan, I&apos;ve shipped food platforms, AI SaaS products, healthcare apps, and fintech tools — all designed to scale without breaking.
+                            I&apos;m a full-stack engineer from Pakistan with 5+ years of experience building products that live in production and handle real traffic. My work spans food tech, healthcare, fintech, and AI — I&apos;ve taken systems from first commit to national scale.
                         </p>
                         <p>
-                            I specialize in the gap between &quot;it works&quot; and &quot;it works at scale.&quot; When you hire me, you&apos;re not getting a developer. You&apos;re getting an architect who owns the outcome.
+                            At my current role, I lead a team of five engineers at Norway&apos;s 2nd largest food ordering platform — making architecture calls, driving code quality, and keeping delivery on track under pressure.
+                        </p>
+                        <p>
+                            I specialize in the part most developers avoid: the gap between a working prototype and a system that holds up under load. Clean abstractions, thoughtful data models, infrastructure that doesn&apos;t need babysitting.
                         </p>
                     </div>
 
-                    {/* Skill Badges */}
-                    <div className="flex flex-wrap gap-3 mb-8">
-                        {keySkills.map((skill, index) => (
-                            <span 
-                                key={index}
-                                className="px-4 py-2 rounded-full bg-white/[0.05] border border-white/10 text-sm font-medium text-foreground/70"
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+                        {highlights.map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.08, duration: 0.5 }}
                             >
-                                {skill}
-                            </span>
+                                <p className="text-2xl md:text-3xl font-anton text-primary">{item.value}</p>
+                                <p className="text-xs text-foreground/50 uppercase tracking-widest mt-1">{item.label}</p>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
-                {/* Right Column - Photo */}
+                {/* Right — Photo */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="relative aspect-square md:aspect-[4/5] lg:aspect-square"
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    className="relative aspect-[3/4] lg:sticky lg:top-24"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl border border-white/10 overflow-hidden group shadow-2xl">
-                        <Image 
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden border border-border shadow-2xl group">
+                        <Image
                             src="/logo/devtallha.png"
                             alt="Tallha Mushtaq"
                             fill
-                            className="object-cover grayscale hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-90 group-hover:opacity-100"
+                            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                         />
-                        {/* Decorative glass elements */}
-                        <div className="absolute top-4 right-4 w-20 h-20 bg-white/5 backdrop-blur-md rounded-full border border-white/10" />
-                        <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-primary/10 blur-3xl rounded-full" />
                     </div>
+                    <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/10 blur-3xl rounded-full pointer-events-none" />
+                    <div className="absolute -top-4 -left-4 w-24 h-24 bg-foreground/5 blur-2xl rounded-full pointer-events-none" />
                 </motion.div>
             </div>
-
-            {/* Timeline Row */}
-            <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-12"
-            >
-                {milestones.map((milestone, index) => (
-                    <div key={index} className="space-y-2 group">
-                        <p className="text-primary font-anton text-2xl group-hover:scale-110 transition-transform origin-left inline-block">
-                            {milestone.year}
-                        </p>
-                        <p className="text-foreground/60 font-medium uppercase text-xs tracking-[0.2em] leading-tight">
-                            {milestone.title}
-                        </p>
-                    </div>
-                ))}
-            </motion.div>
         </section>
     );
 };

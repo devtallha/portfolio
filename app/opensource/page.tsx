@@ -7,8 +7,24 @@ import OpenSourceCard from '../_components/OpenSourceCard';
 // export const dynamic = 'force-static'; // If we use force-static with fetch revalidate it might complain if fetch isn't statically analyzable or cached properly, but usually it works if fetch has revalidate. Let's just leave default behavior.
 
 export const metadata: Metadata = {
-    title: 'Open Source Contributions | Architecture & Tools',
-    description: 'Explore my public repositories, architectural patterns, and open-source contributions to the MERN and AI developer communities.',
+    title: 'Open Source | Tallha Mushtaq',
+    description: 'Public repositories, architectural patterns, and open-source contributions to the MERN and AI developer communities.',
+    alternates: {
+        canonical: 'https://tallha.dev/opensource',
+    },
+    openGraph: {
+        title: 'Open Source | Tallha Mushtaq',
+        description: 'Public repositories and open-source contributions to the MERN and AI developer communities.',
+        type: 'website',
+        url: 'https://tallha.dev/opensource',
+        images: [{ url: '/logo/devtallha.png', width: 1200, height: 630, alt: 'Tallha Mushtaq Open Source' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Open Source | Tallha Mushtaq',
+        description: 'Public repositories and open-source contributions by Tallha Mushtaq.',
+        images: ['/logo/devtallha.png'],
+    },
 };
 
 const OpenSourcePage = async () => {

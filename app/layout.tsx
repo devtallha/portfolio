@@ -1,16 +1,10 @@
 import type { Metadata } from 'next';
 import { Anton, Roboto_Flex } from 'next/font/google';
-import { ReactLenis } from 'lenis/react';
-
-import 'lenis/dist/lenis.css';
+import { ThemeProvider } from 'next-themes';
 import './globals.css';
 import Footer from '@/components/Footer';
-import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
-import ParticleBackground from '@/components/ParticleBackground';
 import Navbar from '@/components/Navbar';
-import CustomCursor from '@/components/CustomCursor';
-import Preloader from '../components/Preloader';
-import StickyEmail from './_components/StickyEmail';
+import ClientComponents from '@/components/ClientComponents';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -19,6 +13,7 @@ const antonFont = Anton({
     style: 'normal',
     subsets: ['latin'],
     variable: '--font-anton',
+    display: 'swap',
 });
 
 const robotoFlex = Roboto_Flex({
@@ -26,16 +21,17 @@ const robotoFlex = Roboto_Flex({
     style: 'normal',
     subsets: ['latin'],
     variable: '--font-roboto-flex',
+    display: 'swap',
 });
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://tallha.dev'),
     title: {
-        default: 'Tallha Mushtaq | Senior MERN Stack Developer | Remote | Norway & UAE Experience',
+        default: 'Tallha Mushtaq | Full-Stack Engineer & Team Lead',
         template: '%s | Tallha Mushtaq',
     },
     description:
-        "Senior MERN Stack Developer and Team Lead with 4.8+ years delivering remote solutions for international clients in Norway, UAE, and Pakistan. Currently leading development for DineHome — Norway's 2nd largest food ordering platform.",
+        "Full-stack engineer and team lead with 5+ years delivering remote solutions for international clients in Norway, UAE, and Pakistan. Currently leading development for DineHome — Norway's 2nd largest food ordering platform.",
     keywords: [
         'Senior MERN Stack Developer',
         'AI SaaS Developer',
@@ -66,9 +62,9 @@ export const metadata: Metadata = {
         locale: 'en_US',
         url: 'https://tallha.dev',
         siteName: 'Tallha Mushtaq | Senior MERN Architect',
-        title: 'Tallha Mushtaq | Senior MERN Developer | Norway & UAE Experience',
+        title: 'Tallha Mushtaq | Full-Stack Engineer & Team Lead',
         description:
-            'Senior MERN Stack Developer with 4.8+ years of remote delivery for international clients across Norway and UAE. Available for remote opportunities.',
+            'Full-stack engineer with 5+ years of remote delivery for international clients across Norway and UAE. Available for remote opportunities.',
         images: [
             {
                 url: '/logo/devtallha.png',
@@ -146,25 +142,14 @@ export default function RootLayout({
                 className={`${antonFont.variable} ${robotoFlex.variable} antialiased`}
                 suppressHydrationWarning
             >
-                <ReactLenis
-                    root
-                    options={{
-                        lerp: 0.1,
-                        duration: 1.4,
-                    }}
-                >
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <Navbar />
                     <main>{children}</main>
                     <Footer />
-
-                    <CustomCursor />
-                    <Preloader />
-                    <ScrollProgressIndicator />
-                    <ParticleBackground />
-                    <StickyEmail />
+                    <ClientComponents />
                     <Analytics />
                     <SpeedInsights />
-                </ReactLenis>
+                </ThemeProvider>
             </body>
         </html>
     );

@@ -13,20 +13,17 @@ const Experiences = () => {
 
     useGSAP(
         () => {
-            const tl = gsap.timeline({
+            gsap.from('.experience-item', {
+                y: 40,
+                opacity: 0,
+                stagger: 0.2,
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: 'top 60%',
+                    start: 'top 65%',
                     end: 'bottom 50%',
-                    toggleActions: 'restart none none reverse',
                     scrub: 1,
                 },
-            });
-
-            tl.from('.experience-item', {
-                y: 50,
-                opacity: 0,
-                stagger: 0.3,
             });
         },
         { scope: containerRef },
@@ -34,18 +31,15 @@ const Experiences = () => {
 
     useGSAP(
         () => {
-            const tl = gsap.timeline({
+            gsap.to(containerRef.current, {
+                y: -120,
+                opacity: 0,
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: 'bottom 50%',
                     end: 'bottom 20%',
                     scrub: 1,
                 },
-            });
-
-            tl.to(containerRef.current, {
-                y: -150,
-                opacity: 0,
             });
         },
         { scope: containerRef },
@@ -54,23 +48,38 @@ const Experiences = () => {
     return (
         <section className="py-section" id="my-experience">
             <div className="container" ref={containerRef}>
-                <SectionTitle title="My Experience" />
+                <SectionTitle title="Experience" />
 
-                <div className="grid gap-14">
-                    {MY_EXPERIENCE.map((item) => (
-                        <div key={item.title} className="experience-item border-b border-white/5 pb-12 last:border-none last:pb-0">
-                            <p className="text-xl text-muted-foreground">
-                                {item.company}
-                            </p>
-                            <p className="text-4xl md:text-5xl font-anton leading-none mt-4 mb-3">
-                                {item.title}
-                            </p>
-                            <p className="text-lg text-blue-500 mb-6">
-                                {item.duration}
-                            </p>
-                            <p className="text-muted-foreground text-lg max-w-3xl font-roboto-flex leading-relaxed">
-                                {item.description}
-                            </p>
+                <div>
+                    {MY_EXPERIENCE.map((item, i) => (
+                        <div
+                            key={item.title}
+                            className="experience-item border-t border-border py-10 md:py-12 last:border-b grid grid-cols-1 md:grid-cols-12 gap-6"
+                        >
+                            {/* Left — index + company + duration */}
+                            <div className="md:col-span-4 space-y-2">
+                                <span className="section-label tabular-nums">
+                                    {String(i + 1).padStart(2, '0')}
+                                </span>
+                                <p className="text-foreground/60 font-roboto-flex text-sm leading-snug mt-2">
+                                    {item.company}
+                                </p>
+                                <p className="text-primary font-roboto-flex text-sm font-medium">
+                                    {item.duration}
+                                </p>
+                            </div>
+
+                            {/* Right — title + description */}
+                            <div className="md:col-span-8">
+                                <h3 className="font-anton text-2xl md:text-3xl leading-tight mb-5">
+                                    {item.title}
+                                </h3>
+                                <div className="space-y-3 text-foreground/60 text-base leading-relaxed font-roboto-flex">
+                                    {item.description.split('\n\n').map((para, j) => (
+                                        <p key={j}>{para}</p>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

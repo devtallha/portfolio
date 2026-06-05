@@ -1,11 +1,9 @@
 'use client';
 import SectionTitle from '@/components/SectionTitle';
 import { PROJECTS } from '@/lib/data';
-// import { cn } from '@/lib/utils';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-// import Image from 'next/image';
 import React, { useRef, useState, MouseEvent } from 'react';
 import Project from './Project';
 import TransitionLink from '@/components/TransitionLink';
@@ -16,7 +14,6 @@ const ProjectList = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const projectListRef = useRef<HTMLDivElement>(null);
     const imageContainer = useRef<HTMLDivElement>(null);
-    // const imageRef = useRef<HTMLImageElement>(null);
     const [selectedProject, setSelectedProject] = useState<string | null>(
         PROJECTS[0].slug,
     );
@@ -64,7 +61,7 @@ const ProjectList = () => {
                     duration: 1,
                     opacity: 1,
                 });
-            }) as any;
+            }) as unknown as (e: MouseEvent) => void;
 
             window.addEventListener('mousemove', handleMouseMove);
 
@@ -114,26 +111,7 @@ const ProjectList = () => {
                         <div
                             className="max-md:hidden absolute right-0 top-0 z-[1] pointer-events-none w-[200px] xl:w-[350px] aspect-[3/4] overflow-hidden opacity-0"
                             ref={imageContainer}
-                        >
-                            {/* {PROJECTS.map((project) => (
-                                <Image
-                                    src={project.thumbnail}
-                                    alt="Project"
-                                    width="400"
-                                    height="500"
-                                    className={cn(
-                                        'absolute inset-0 transition-all duration-500 w-full h-full object-cover',
-                                        {
-                                            'opacity-0':
-                                                project.slug !==
-                                                selectedProject,
-                                        },
-                                    )}
-                                    ref={imageRef}
-                                    key={project.slug}
-                                />
-                            ))} */}
-                        </div>
+                        />
                     )}
 
                     <div
@@ -158,7 +136,7 @@ const ProjectList = () => {
                                 className="group flex items-center gap-4 text-foreground hover:text-primary transition-all font-roboto-flex text-xl uppercase font-anton tracking-wider"
                             >
                                 View all projects
-                                <div className="size-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
+                                <div className="size-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
                                     <svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         width="20" 

@@ -5,41 +5,15 @@ import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
 import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
-
-const COLORS = [
-    'bg-yellow-500 text-black',
-    'bg-blue-500 text-white',
-    'bg-teal-500 text-black',
-    'bg-indigo-500 text-white',
-    'bg-primary text-background',
-    'bg-secondary text-background',
-];
+import ThemeToggle from './ThemeToggle';
 
 const MENU_LINKS = [
-    {
-        name: 'Home',
-        url: '/',
-    },
-    {
-        name: 'About Me',
-        url: '/#about-me',
-    },
-    {
-        name: 'Experience',
-        url: '/#my-experience',
-    },
-    {
-        name: 'Projects',
-        url: '/#selected-projects',
-    },
-    {
-        name: 'Blog',
-        url: '/blog',
-    },
-    {
-        name: 'Contact',
-        url: '/#contact',
-    },
+    { name: 'Home', url: '/' },
+    { name: 'About Me', url: '/#about-me' },
+    { name: 'Experience', url: '/#my-experience' },
+    { name: 'Projects', url: '/#selected-projects' },
+    { name: 'Blog', url: '/blog' },
+    { name: 'Contact', url: '/#contact' },
 ];
 
 const Navbar = () => {
@@ -47,7 +21,7 @@ const Navbar = () => {
     const router = useRouter();
     const isUpwork = useUpworkMode();
 
-    const socialLinks = isUpwork 
+    const socialLinks = isUpwork
         ? SOCIAL_LINKS.filter(link => link.name.toLowerCase() !== 'linkedin')
         : SOCIAL_LINKS;
 
@@ -57,124 +31,110 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="sticky top-0 z-[4]">
+            {/* Hamburger trigger + theme toggle */}
+            <div className="fixed top-0 right-0 z-[4] p-5 md:p-8 flex items-center gap-3">
+                <ThemeToggle />
                 <button
-                    className={cn(
-                        'group size-12 absolute top-5 right-5 md:right-10 z-[2]',
-                    )}
+                    className="group flex flex-col gap-[5px] items-end"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={isMenuOpen}
                 >
-                    <span
-                        className={cn(
-                            'inline-block w-3/5 h-0.5 bg-foreground rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 -translate-y-[5px] ',
-                            {
-                                'rotate-45 -translate-y-1/2': isMenuOpen,
-                                'md:group-hover:rotate-12': !isMenuOpen,
-                            },
-                        )}
-                    ></span>
-                    <span
-                        className={cn(
-                            'inline-block w-3/5 h-0.5 bg-foreground rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 translate-y-[5px] ',
-                            {
-                                '-rotate-45 -translate-y-1/2': isMenuOpen,
-                                'md:group-hover:-rotate-12': !isMenuOpen,
-                            },
-                        )}
-                    ></span>
+                    <span className={cn(
+                        'block h-px bg-foreground transition-all duration-300 origin-right',
+                        isMenuOpen ? 'w-6 rotate-45 translate-y-[3px]' : 'w-6 group-hover:w-8',
+                    )} />
+                    <span className={cn(
+                        'block h-px bg-foreground transition-all duration-300 origin-right',
+                        isMenuOpen ? 'w-6 -rotate-45 -translate-y-[3px]' : 'w-4 group-hover:w-8',
+                    )} />
                 </button>
             </div>
 
+            {/* Backdrop */}
             <div
                 className={cn(
-                    'overlay fixed inset-0 z-[2] bg-black/70 transition-all duration-150',
-                    {
-                        'opacity-0 invisible pointer-events-none': !isMenuOpen,
-                    },
+                    'fixed inset-0 z-[2] bg-black/60 backdrop-blur-sm transition-all duration-300',
+                    isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none',
                 )}
                 onClick={() => setIsMenuOpen(false)}
-            ></div>
+            />
 
-            <div
+            {/* Drawer */}
+            <nav
                 className={cn(
-                    'fixed top-0 right-0 h-[100dvh] w-[500px] max-w-[calc(100vw-3rem)] transform translate-x-full transition-transform duration-700 z-[3] overflow-hidden gap-y-14',
-                    'flex flex-col lg:justify-center py-10',
-                    { 'translate-x-0': isMenuOpen },
+                    'fixed top-0 right-0 h-[100dvh] w-[480px] max-w-[calc(100vw-2rem)] z-[3]',
+                    'bg-background border-l border-border',
+                    'flex flex-col justify-between py-12 px-10',
+                    'transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]',
+                    isMenuOpen ? 'translate-x-0' : 'translate-x-full',
                 )}
             >
-                <div
-                    className={cn(
-                        'fixed inset-0 scale-150 translate-x-1/2 rounded-[50%] bg-background-light duration-700 delay-150 z-[-1]',
-                        {
-                            'translate-x-0': isMenuOpen,
-                        },
-                    )}
-                ></div>
-
-                <div className="grow flex md:items-center w-full max-w-[300px] mx-8 sm:mx-auto">
-                    <div className="flex gap-10 lg:justify-between max-lg:flex-col w-full">
-                        <div className="max-lg:order-2">
-                            <p className="text-muted-foreground mb-5 md:mb-8">
-                                SOCIAL
-                            </p>
-                            <ul className="space-y-3">
-                                {socialLinks.map((link) => (
-                                    <li key={link.name}>
-                                        <a
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="text-lg capitalize hover:underline"
-                                        >
-                                            {link.name}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="">
-                            <p className="text-muted-foreground mb-5 md:mb-8">
-                                MENU
-                            </p>
-                            <ul className="space-y-3">
-                                {menuLinks.map((link, idx) => (
-                                    <li key={link.name}>
-                                        <button
-                                            onClick={() => {
-                                                router.push(link.url);
-                                                setIsMenuOpen(false);
-                                            }}
-                                            className="group text-xl flex items-center gap-3"
-                                        >
-                                            <span
-                                                className={cn(
-                                                    'size-3.5 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-[200%] transition-all',
-                                                    COLORS[idx],
-                                                )}
-                                            >
-                                                <MoveUpRight
-                                                    size={8}
-                                                    className="scale-0 group-hover:scale-100 transition-all"
-                                                />
-                                            </span>
-                                            {link.name}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
+                {/* Top label */}
+                <div className="flex items-center justify-between">
+                    <span className="section-label">Navigation</span>
+                    <span className="section-label">{new Date().getFullYear()}</span>
                 </div>
 
-                {!isUpwork && (
-                    <div className="w-full max-w-[300px] mx-8 sm:mx-auto">
-                        <p className="text-muted-foreground mb-4">GET IN TOUCH</p>
-                        <a href={`mailto:${GENERAL_INFO.email}`}>
-                            {GENERAL_INFO.email}
-                        </a>
+                {/* Menu links */}
+                <ul className="space-y-1">
+                    {menuLinks.map((link, i) => (
+                        <li key={link.name} className="border-b border-border">
+                            <button
+                                onClick={() => {
+                                    router.push(link.url);
+                                    setIsMenuOpen(false);
+                                }}
+                                className="group w-full flex items-center justify-between py-4 text-left"
+                            >
+                                <div className="flex items-baseline gap-4">
+                                    <span className="section-label tabular-nums">
+                                        {String(i + 1).padStart(2, '0')}
+                                    </span>
+                                    <span className="font-anton text-3xl tracking-tight group-hover:text-primary transition-colors duration-300">
+                                        {link.name}
+                                    </span>
+                                </div>
+                                <MoveUpRight
+                                    size={16}
+                                    className="text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-primary transition-all duration-300 -translate-y-1 translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0"
+                                />
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Bottom — socials + email */}
+                <div className="space-y-6">
+                    <div>
+                        <p className="section-label mb-3">Socials</p>
+                        <div className="flex gap-6">
+                            {socialLinks.map(link => (
+                                <a
+                                    key={link.name}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="text-sm font-medium capitalize text-foreground/60 hover:text-primary transition-colors duration-300"
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                )}
-            </div>
+                    {!isUpwork && (
+                        <div>
+                            <p className="section-label mb-1">Email</p>
+                            <a
+                                href={`mailto:${GENERAL_INFO.email}`}
+                                className="text-sm text-foreground/60 hover:text-primary transition-colors duration-300"
+                            >
+                                {GENERAL_INFO.email}
+                            </a>
+                        </div>
+                    )}
+                </div>
+            </nav>
         </>
     );
 };

@@ -5,17 +5,13 @@ import { GENERAL_INFO } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { ArrowDown } from 'lucide-react';
 import React from 'react';
-import { useUpworkMode } from '@/lib/hooks/useUpworkMode';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Banner = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
-    const isUpwork = useUpworkMode();
 
-    // move the content a little up on scroll
     useGSAP(
         () => {
             const tl = gsap.timeline({
@@ -26,11 +22,10 @@ const Banner = () => {
                     scrub: 1,
                 },
             });
-
             tl.fromTo(
                 '.slide-up-and-fade',
                 { y: 0 },
-                { y: -150, opacity: 0, stagger: 0.02 },
+                { y: -120, opacity: 0, stagger: 0.02 },
             );
         },
         { scope: containerRef },
@@ -40,19 +35,30 @@ const Banner = () => {
         <section className="relative overflow-hidden" id="banner">
             <ArrowAnimation />
             <div
-                className="container h-[100svh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col"
+                className="container h-[100svh] min-h-[600px] flex flex-col justify-end pb-12 md:pb-16"
                 ref={containerRef}
             >
-                <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
-                    <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary uppercase">Tallha Mushtaq</span>
-                        <br /> <span className="ml-4">MERN STACK DEVELOPER</span>
+                {/* Rule */}
+                <div className="slide-up-and-fade rule mb-8 md:mb-10" />
+
+                {/* Name + title */}
+                <div className="slide-up-and-fade">
+                    <h1 className="font-anton text-display-xl uppercase leading-[0.9] tracking-[-0.02em]">
+                        <span className="text-primary">Tallha</span>
+                        <br />
+                        <span>Mushtaq</span>
                     </h1>
-                    <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
-                        Senior MERN Stack Developer & Team Lead.<br />
-                        Currently building DineHome — Norway&apos;s 2nd largest food ordering platform.
+                </div>
+
+                {/* Bottom row — description + CTA */}
+                <div className="slide-up-and-fade rule mt-8 md:mt-10 mb-8 md:mb-10" />
+                <div className="slide-up-and-fade flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+                    <p className="text-foreground/60 text-base md:text-lg max-w-sm leading-relaxed">
+                        Full-stack engineer and team lead with 5+ years shipping
+                        production systems at scale — across healthcare, fintech,
+                        food tech, and AI SaaS.
                     </p>
-                    <div className="mt-9 flex flex-wrap gap-4 slide-up-and-fade">
+                    <div className="flex flex-wrap gap-4 shrink-0">
                         <Button
                             as="link"
                             target="_blank"
@@ -63,52 +69,26 @@ const Banner = () => {
                         >
                             Hire Me
                         </Button>
-                        {!isUpwork && (
-                            <Button
-                                as="link"
-                                href={GENERAL_INFO.cvUrl}
-                                download="Tallha_Mushtaq.pdf"
-                                variant="secondary"
-                                className="banner-button"
-                            >
-                                Download CV <ArrowDown size={20} />
-                            </Button>
-                        )}
+                        <Button
+                            as="link"
+                            href="/#contact"
+                            variant="secondary"
+                            className="banner-button"
+                        >
+                            Get in touch
+                        </Button>
                     </div>
                 </div>
 
-                <div className="md:absolute bottom-[10%] right-[4%] flex flex-wrap md:flex-col justify-center gap-4 md:gap-6 text-center md:text-right">
-                    <div className="slide-up-and-fade">
-                        <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            4.8+
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Years of Experience
-                        </p>
+                {/* Stats — bottom right corner */}
+                <div className="slide-up-and-fade absolute bottom-12 right-6 md:right-0 hidden lg:flex flex-col gap-5 text-right">
+                    <div>
+                        <p className="font-anton text-4xl text-primary">5+</p>
+                        <p className="section-label mt-1">Years of experience</p>
                     </div>
-                    <div className="slide-up-and-fade">
-                        <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            30+
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Completed Projects
-                        </p>
-                    </div>
-                    <div className="slide-up-and-fade">
-                        <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            3
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Countries Served
-                        </p>
-                    </div>
-                    <div className="slide-up-and-fade">
-                        <h2 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            15,000+
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Monthly Users
-                        </p>
+                    <div>
+                        <p className="font-anton text-4xl text-primary">30+</p>
+                        <p className="section-label mt-1">Projects shipped</p>
                     </div>
                 </div>
             </div>
