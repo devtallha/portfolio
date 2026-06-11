@@ -13,10 +13,9 @@ const Preloader = () => {
         return true;
     });
 
-    if (!shouldRender) return null;
-
     useGSAP(
         () => {
+            if (!shouldRender) return;
             const tl = gsap.timeline({
                 defaults: {
                     ease: 'power1.inOut',
@@ -45,8 +44,10 @@ const Preloader = () => {
                 .to('.title-text span', { autoAlpha: 0, duration: 0.2 }, '<0.1')
                 .to(preloaderRef.current, { autoAlpha: 0, duration: 0.3 }, '<0.2');
         },
-        { scope: preloaderRef },
+        { scope: preloaderRef, dependencies: [shouldRender] },
     );
+
+    if (!shouldRender) return null;
 
     return (
         <div className="fixed inset-0 z-[6] flex" ref={preloaderRef}>
