@@ -18,12 +18,15 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
             </div>
 
             <div className="p-8 flex flex-col grow">
-                <div className="flex items-center gap-4 mb-4 text-xs font-medium text-muted-foreground uppercase tracking-widest">
-                    <span className="flex items-center gap-1.5">
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-medium uppercase tracking-widest">
+                        {project.type}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground uppercase tracking-widest">
                         <Calendar size={12} className="text-primary" />
                         {project.year}
                     </span>
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground uppercase tracking-widest">
                         <Code2 size={12} className="text-primary" />
                         {project.techStack.length} Technologies
                     </span>

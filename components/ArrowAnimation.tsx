@@ -52,7 +52,7 @@ const ArrowAnimation = () => {
             viewBox="0 0 376 111"
             fill="transparent"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute bottom-20 left-1/2 -translate-x-1/2 z-0"
+            className="absolute bottom-20 left-1/2 -translate-x-1/2 z-0 w-[60vw] max-w-[376px]"
             ref={svgRef}
         >
             <path

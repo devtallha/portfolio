@@ -13,34 +13,21 @@ const Experiences = () => {
 
     useGSAP(
         () => {
-            gsap.from('.experience-item', {
-                y: 40,
-                opacity: 0,
-                stagger: 0.2,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 65%',
-                    end: 'bottom 50%',
-                    scrub: 1,
-                },
+            gsap.utils.toArray<HTMLElement>('.experience-item').forEach((item, i) => {
+                gsap.from(item, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    delay: i * 0.08,
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%',
+                        once: true,
+                    },
+                });
             });
-        },
-        { scope: containerRef },
-    );
-
-    useGSAP(
-        () => {
-            gsap.to(containerRef.current, {
-                y: -120,
-                opacity: 0,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'bottom 50%',
-                    end: 'bottom 20%',
-                    scrub: 1,
-                },
-            });
+            ScrollTrigger.refresh();
         },
         { scope: containerRef },
     );

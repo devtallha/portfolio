@@ -4,13 +4,14 @@ import { MoveUpRight } from 'lucide-react';
 import { getOpenSourceProjects } from '@/lib/github';
 import OpenSourceCard from './OpenSourceCard';
 import TransitionLink from '@/components/TransitionLink';
+import FadeInGrid from '@/components/FadeInGrid';
 
 const OpenSourcePreview = async () => {
     const projects = await getOpenSourceProjects();
     const topProjects = projects.slice(0, 3);
 
     return (
-        <section className="py-24 border-t border-border" id="opensource-preview">
+        <section className="py-section border-t border-border" id="opensource-preview">
             <div className="container">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
                     <div className="max-w-2xl">
@@ -35,11 +36,11 @@ const OpenSourcePreview = async () => {
                 </div>
 
                 {topProjects.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <FadeInGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {topProjects.map((repo) => (
                             <OpenSourceCard key={repo.id} repo={repo} />
                         ))}
-                    </div>
+                    </FadeInGrid>
                 ) : (
                     <div className="text-center py-20">
                         <p className="text-2xl text-muted-foreground">Fetching repositories...</p>

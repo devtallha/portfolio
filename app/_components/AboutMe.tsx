@@ -13,7 +13,7 @@ const highlights = [
 
 const AboutMe = () => {
     return (
-        <section className="py-24 container overflow-hidden" id="about-me">
+        <section className="py-section container overflow-hidden" id="about-me">
             <SectionTitle title="About Me" />
 
             <div className="mt-16 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16 items-start">
@@ -65,14 +65,14 @@ const AboutMe = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: 0.2 }}
-                    className="relative aspect-[3/4] lg:sticky lg:top-24"
+                    className="relative aspect-[3/4] max-h-[420px] sm:max-h-[520px] lg:max-h-none lg:sticky lg:top-24"
                 >
                     <div className="absolute inset-0 rounded-2xl overflow-hidden border border-border shadow-2xl group">
                         <Image
                             src="/logo/devtallha.png"
                             alt="Tallha Mushtaq"
                             fill
-                            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                            className="object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                         />
                     </div>
                     <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/10 blur-3xl rounded-full pointer-events-none" />

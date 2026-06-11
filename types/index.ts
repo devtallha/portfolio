@@ -15,9 +15,12 @@ export type Variant =
     | 'link'
     | 'no-color';
 
+export type ProjectType = 'AI' | 'SaaS' | 'Food Tech' | 'FinTech' | 'Healthcare' | 'EdTech';
+
 export interface IProject {
     title: string;
     year: number;
+    type: ProjectType;
     description: string;
     role: string;
     techStack: string[];

@@ -1,4 +1,6 @@
-import { IProject } from '@/types';
+import { IProject, ProjectType } from '@/types';
+
+export const PROJECT_TYPES: ProjectType[] = ['AI', 'SaaS', 'Food Tech', 'FinTech', 'Healthcare', 'EdTech'];
 
 export const GENERAL_INFO = {
     email: 'devtallha@gmail.com',
@@ -147,6 +149,7 @@ export const PROJECTS: IProject[] = [
         slug: 'social-media-application',
         liveUrl: '',
         year: 2024,
+        type: 'Healthcare',
         description: `
         <p>Social media application for healthcare professionals featuring content feeds, messaging, and profile management.</p>
         <ul>
@@ -169,6 +172,7 @@ export const PROJECTS: IProject[] = [
         slug: 'the-tutor-me',
         liveUrl: 'https://thetutor.me/',
         year: 2024,
+        type: 'EdTech',
         description: `
         <p>Online learning platform offering private tutoring services with video sessions, scheduling, and payment processing.</p>
         <ul>
@@ -191,6 +195,7 @@ export const PROJECTS: IProject[] = [
         slug: 'dinehome',
         liveUrl: 'https://dinehome.no/',
         year: 2025,
+        type: 'Food Tech',
         description: `
         <p>2nd largest food ordering application in Norway with real-time order tracking and multi-vendor management.</p>
         <ul>
@@ -213,6 +218,7 @@ export const PROJECTS: IProject[] = [
         slug: 'doocado',
         liveUrl: 'https://doocado.com/',
         year: 2024,
+        type: 'AI',
         description: `
         <p>AI-based food ordering system via WhatsApp leveraging LLM integrations for smart menu suggestions.</p>
         <ul>
@@ -235,6 +241,7 @@ export const PROJECTS: IProject[] = [
         slug: 'splinter',
         liveUrl: '',
         year: 2024,
+        type: 'FinTech',
         description: `
         <p>Fintech Buy-Now-Pay-Later (BNPL) product with credit scoring and installment tracking.</p>
         <ul>
@@ -257,6 +264,7 @@ export const PROJECTS: IProject[] = [
         slug: 'isalonee',
         liveUrl: 'https://isalonee.com/',
         year: 2023,
+        type: 'SaaS',
         description: `
         <p>Personalized salon & spa booking SaaS platform with appointment management and staff scheduling.</p>
         <ul>
@@ -279,6 +287,7 @@ export const PROJECTS: IProject[] = [
         slug: 'trigan',
         liveUrl: 'https://trigan.org/',
         year: 2024,
+        type: 'AI',
         description: `
         <p>Decision intelligence & strategy simulation engine.</p>
         <ul>
@@ -301,19 +310,19 @@ export const PROJECTS: IProject[] = [
 export const MY_EXPERIENCE = [
     {
         title: 'Technical Team Lead & Senior MERN Stack Developer',
-        company: 'Hello World Technologies · Remote',
+        company: 'Hello World Technologies · Lahore, Pakistan',
         duration: 'Sep 2024 - Present',
         description: 'Outsourced to DineHome — Norway\'s 2nd largest food ordering platform. Leading a team of 5 engineers to architect and deliver a high-traffic platform serving 15,000+ monthly active users across Norway.\n\n→ Reduced load times by 38% via Redis caching, lazy loading, and query optimization\n→ Cut production bugs by 30% through code reviews and pair programming\n→ Reduced deployment issues by 40% through CI/CD pipeline implementation\n→ Own end-to-end architecture decisions, stack selection, and engineering best practices\n\nStack: Next.js, NestJS, Node.js, MongoDB, Redis, RabbitMQ, AWS, Docker, TypeScript',
     },
     {
         title: 'Project Team Lead & MERN Stack Developer',
-        company: 'DruDots Technologies · Remote',
+        company: 'DruDots Technologies · Lahore, Pakistan',
         duration: 'Jul 2023 - Sep 2024',
         description: 'Led development for a social platform for healthcare professionals built for an international client.\n\n→ Scaled to 8,000+ active users across concurrent client projects\n→ Improved performance by 35% through backend API and frontend rendering optimization\n→ Designed real-time backend architecture using WebSockets for live feeds and messaging\n→ Delivered consistently on-time for all international client commitments\n\nStack: React, NestJS, Node.js, MongoDB, PostgreSQL, WebSockets, Docker, TypeScript',
     },
     {
         title: 'MERN Stack Developer',
-        company: 'ProNode Technologies · Remote',
+        company: 'ProNode Technologies · Lahore, Pakistan',
         duration: 'Nov 2021 - Jul 2023',
         description: 'Outsourced to Pangiah — a UAE-based technology company serving the Dubai market. Delivered two full SaaS products from scratch.\n\n→ TheTutor.me — Online tutoring platform with video sessions, student-tutor matching, scheduling, and Stripe payment integration\n→ iSalonee — Multi-tenant SaaS salon & spa booking platform with CRM and staff scheduling for Dubai\n→ Contributed to 15+ production deployments across complete SDLC\n→ Reduced team defects by 20% through active code reviews and reusable component development\n\nStack: React, Node.js, Express.js, MongoDB, REST APIs, TypeScript',
     },

@@ -1,12 +1,19 @@
 'use client';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
 const Preloader = () => {
     const preloaderRef = useRef<HTMLDivElement>(null);
+    const [shouldRender] = useState(() => {
+        if (sessionStorage.getItem('preloader-shown')) return false;
+        sessionStorage.setItem('preloader-shown', '1');
+        return true;
+    });
+
+    if (!shouldRender) return null;
 
     useGSAP(
         () => {
@@ -18,29 +25,25 @@ const Preloader = () => {
 
             tl.to('.name-text span', {
                 y: 0,
-                stagger: 0.01,
-                duration: 0.06,
+                stagger: 0.05,
+                duration: 0.12,
             });
 
             tl.to('.title-text span', {
                 y: 0,
-                stagger: 0.008,
-                duration: 0.04,
-            }, '-=0.08');
+                stagger: 0.03,
+                duration: 0.08,
+            }, '-=0.15');
 
             tl.to('.preloader-item', {
-                delay: 0.05,
+                delay: 0.3,
                 y: '100%',
-                duration: 0.15,
-                stagger: 0.02,
+                duration: 0.4,
+                stagger: 0.05,
             })
-                .to('.name-text span', { autoAlpha: 0 }, '<0.05')
-                .to('.title-text span', { autoAlpha: 0 }, '<0.05')
-                .to(
-                    preloaderRef.current,
-                    { autoAlpha: 0 },
-                    '<0.15',
-                );
+                .to('.name-text span', { autoAlpha: 0, duration: 0.2 }, '<0.1')
+                .to('.title-text span', { autoAlpha: 0, duration: 0.2 }, '<0.1')
+                .to(preloaderRef.current, { autoAlpha: 0, duration: 0.3 }, '<0.2');
         },
         { scope: preloaderRef },
     );

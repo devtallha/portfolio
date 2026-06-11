@@ -21,34 +21,21 @@ const Skills = () => {
 
     useGSAP(
         () => {
-            gsap.from('.skill-row', {
-                opacity: 0,
-                y: 30,
-                stagger: 0.15,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 75%',
-                    end: 'bottom 75%',
-                    scrub: 0.5,
-                },
+            gsap.utils.toArray<HTMLElement>('.skill-row').forEach((row, i) => {
+                gsap.from(row, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    delay: i * 0.08,
+                    scrollTrigger: {
+                        trigger: row,
+                        start: 'top 88%',
+                        once: true,
+                    },
+                });
             });
-        },
-        { scope: containerRef },
-    );
-
-    useGSAP(
-        () => {
-            gsap.to(containerRef.current, {
-                y: -120,
-                opacity: 0,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'bottom 50%',
-                    end: 'bottom 10%',
-                    scrub: 1,
-                },
-            });
+            ScrollTrigger.refresh();
         },
         { scope: containerRef },
     );

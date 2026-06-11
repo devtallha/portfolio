@@ -65,7 +65,7 @@ const Navbar = () => {
                 className={cn(
                     'fixed top-0 right-0 h-[100dvh] w-[480px] max-w-[calc(100vw-2rem)] z-[3]',
                     'bg-background border-l border-border',
-                    'flex flex-col justify-between py-12 px-10',
+                    'flex flex-col justify-between py-10 px-6 md:py-12 md:px-10',
                     'transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]',
                     isMenuOpen ? 'translate-x-0' : 'translate-x-full',
                 )}

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { MoveUpRight } from 'lucide-react';
 import { getBlogPosts } from '@/lib/blog';
 import BlogCard from '../blog/_components/BlogCard';
+import FadeInGrid from '@/components/FadeInGrid';
 
 const BlogPreview = async () => {
     const posts = await getBlogPosts();
@@ -29,13 +30,13 @@ const BlogPreview = async () => {
                 </div>
 
                 {latestPosts.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+                    <FadeInGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
                         {latestPosts.map((post, i) => (
                             <div key={post.slug} className="bg-background">
                                 <BlogCard post={post} priority={i === 0} />
                             </div>
                         ))}
-                    </div>
+                    </FadeInGrid>
                 ) : (
                     <p className="text-muted-foreground py-20 text-center">Writing in progress — check back soon.</p>
                 )}
