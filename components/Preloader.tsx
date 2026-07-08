@@ -1,7 +1,7 @@
 'use client';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import React, { useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
@@ -12,6 +12,13 @@ const Preloader = () => {
         sessionStorage.setItem('preloader-shown', '1');
         return true;
     });
+
+    // The curtain (or the absence of one) is now in the DOM, so it's safe to
+    // reveal the page — the blocking script in layout.tsx hid it via the
+    // `preloading` class on <html> to avoid a flash of unstyled content.
+    useLayoutEffect(() => {
+        document.documentElement.classList.remove('preloading');
+    }, []);
 
     useGSAP(
         () => {

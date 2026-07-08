@@ -145,13 +145,13 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
-        title: 'Social media application',
-        slug: 'social-media-application',
-        liveUrl: '',
+        title: 'Social Media Platform for Healthcare Professionals',
+        slug: 'healthcare-social-platform',
+        liveUrl: 'https://medicalradar.io',
         year: 2024,
         type: 'Healthcare',
         description: `
-        <p>Social media application for healthcare professionals featuring content feeds, messaging, and profile management.</p>
+        <p>Social platform for healthcare professionals (Spain) featuring content feeds, messaging, and profile management.</p>
         <ul>
           <li>Designed and developed a secure, role-based social platform enabling ophthalmologists to collaborate, share cases, and discuss treatments while ensuring medical data privacy.</li>
           <li>Implemented scalable backend architecture and real-time features, supporting 15,000+ monthly active users with high engagement.</li>
@@ -220,9 +220,9 @@ export const PROJECTS: IProject[] = [
         year: 2024,
         type: 'AI',
         description: `
-        <p>AI-based food ordering system via WhatsApp leveraging LLM integrations for smart menu suggestions.</p>
+        <p>AI-powered SaaS food ordering platform (USA) with LLM-driven conversational ordering via WhatsApp and smart menu suggestions.</p>
         <ul>
-          <li>Developed an AI-driven conversational ordering system integrated with WhatsApp, enabling users to place food orders through natural language.</li>
+          <li>Developed an AI-driven conversational ordering system integrated with WhatsApp, enabling users to place food orders through natural language and cutting manual operations by 40%.</li>
           <li>Implemented multi-tenant architecture for restaurant onboarding and automated customer interactions.</li>
           <li>Scaled the platform for US-based operations, focusing on reliability, latency optimization, and seamless third-party integrations.</li>
         </ul>
@@ -283,6 +283,73 @@ export const PROJECTS: IProject[] = [
         techStack: ['Next.js', 'Nest.js', 'PostgreSQL', 'AWS'],
     },
     {
+        title: 'BlueHouz',
+        slug: 'bluehouz',
+        liveUrl: 'https://bluehouz.com',
+        year: 2025,
+        type: 'SaaS',
+        description: `
+        <p>PropTech SaaS platform (Switzerland) helping property owners identify overpaid utility and ancillary costs.</p>
+        <ul>
+          <li>Built a platform for the Swiss market that analyzes property-related utility and service costs to surface overpayments for owners.</li>
+          <li>Designed data ingestion and cost-comparison workflows to translate raw billing data into actionable savings insights.</li>
+          <li>Delivered a clean, self-serve experience enabling property owners to review and act on cost findings without manual intervention.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>MERN Stack Developer.</li>
+          <li>Contributed to core cost-analysis and reporting features across frontend and backend.</li>
+          <li>Collaborated with the client on requirements and iterative delivery for the Swiss market.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
+    },
+    {
+        title: 'AutokaufCheck',
+        slug: 'autokaufcheck',
+        liveUrl: 'https://autokaufcheck-frontend.vercel.app/',
+        year: 2025,
+        type: 'SaaS',
+        description: `
+        <p>Platform (Germany, in progress) connecting vehicle workshops and users for inspection appointment booking.</p>
+        <ul>
+          <li>Building a booking marketplace connecting car buyers with certified workshops for pre-purchase vehicle inspections.</li>
+          <li>Designing scheduling and workshop-matching flows tailored to regional availability and service types.</li>
+          <li>Working closely with the client to iterate on the German market's booking and inspection requirements.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>MERN Stack Developer.</li>
+          <li>Implementing core booking and workshop-matching functionality across frontend and backend.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
+    },
+    {
+        title: 'SullawaySolutions',
+        slug: 'sullaway-solutions',
+        liveUrl: 'https://www.sullawaysolutions.com',
+        year: 2025,
+        type: 'SaaS',
+        description: `
+        <p>Amazon accelerator agency platform (USA) covering strategy, listing optimization, PPC, and analytics.</p>
+        <ul>
+          <li>Built a platform supporting an Amazon accelerator agency's service delivery across strategy, listing optimization, PPC management, and analytics.</li>
+          <li>Implemented reporting and analytics views to help the agency track campaign and listing performance for clients.</li>
+          <li>Delivered a reliable, client-facing platform for the US market.</li>
+        </ul>
+        `,
+        role: `
+        <ul>
+          <li>MERN Stack Developer.</li>
+          <li>Contributed to platform features spanning listing management, PPC tracking, and analytics dashboards.</li>
+        </ul>
+        `,
+        techStack: ['Next.js', 'Node.js', 'MongoDB', 'AWS'],
+    },
+    {
         title: 'Trigan',
         slug: 'trigan',
         liveUrl: 'https://trigan.org/',
@@ -312,18 +379,18 @@ export const MY_EXPERIENCE = [
         title: 'Technical Team Lead & Senior MERN Stack Developer',
         company: 'Hello World Technologies · Lahore, Pakistan',
         duration: 'Sep 2024 - Present',
-        description: 'Outsourced to DineHome — Norway\'s 2nd largest food ordering platform. Leading a team of 5 engineers to architect and deliver a high-traffic platform serving 15,000+ monthly active users across Norway.\n\n→ Reduced load times by 38% via Redis caching, lazy loading, and query optimization\n→ Cut production bugs by 30% through code reviews and pair programming\n→ Reduced deployment issues by 40% through CI/CD pipeline implementation\n→ Own end-to-end architecture decisions, stack selection, and engineering best practices\n\nStack: Next.js, NestJS, Node.js, MongoDB, Redis, RabbitMQ, AWS, Docker, TypeScript',
+        description: 'Outsourced to DineHome — Norway\'s 2nd largest food ordering platform. Leading a team of 5 engineers to architect and deliver a high-traffic platform serving 15,000+ monthly active users across Norway.\n\n→ Reduced load times by 38% via Redis caching, lazy loading, and query optimization\n→ Cut production bugs by 30% through code reviews and pair programming\n→ Reduced deployment issues by 40% and accelerated release cycles by 25% through CI/CD pipeline implementation\n→ Own end-to-end architecture decisions, stack selection, and engineering best practices\n\nStack: React, Next.js, Node.js, NestJS, MongoDB, Redis, RabbitMQ, AWS, Docker, TypeScript',
     },
     {
         title: 'Project Team Lead & MERN Stack Developer',
         company: 'DruDots Technologies · Lahore, Pakistan',
         duration: 'Jul 2023 - Sep 2024',
-        description: 'Led development for a social platform for healthcare professionals built for an international client.\n\n→ Scaled to 8,000+ active users across concurrent client projects\n→ Improved performance by 35% through backend API and frontend rendering optimization\n→ Designed real-time backend architecture using WebSockets for live feeds and messaging\n→ Delivered consistently on-time for all international client commitments\n\nStack: React, NestJS, Node.js, MongoDB, PostgreSQL, WebSockets, Docker, TypeScript',
+        description: 'Led a team of 2 developers delivering a confidential international healthcare-professional social platform.\n\n→ Scaled to 8,000+ active users across concurrent client projects\n→ Improved performance by 35% through backend API and frontend rendering optimization\n→ Designed real-time backend architecture using WebSockets for live feeds and messaging\n→ Partnered directly with international clients on requirements, technical proposals, and sprint demos\n\nStack: React, Node.js, NestJS, MongoDB, PostgreSQL, WebSockets, Docker, TypeScript',
     },
     {
         title: 'MERN Stack Developer',
         company: 'ProNode Technologies · Lahore, Pakistan',
         duration: 'Nov 2021 - Jul 2023',
-        description: 'Outsourced to Pangiah — a UAE-based technology company serving the Dubai market. Delivered two full SaaS products from scratch.\n\n→ TheTutor.me — Online tutoring platform with video sessions, student-tutor matching, scheduling, and Stripe payment integration\n→ iSalonee — Multi-tenant SaaS salon & spa booking platform with CRM and staff scheduling for Dubai\n→ Contributed to 15+ production deployments across complete SDLC\n→ Reduced team defects by 20% through active code reviews and reusable component development\n\nStack: React, Node.js, Express.js, MongoDB, REST APIs, TypeScript',
+        description: 'Outsourced to Pangiah — a UAE-based technology company serving the Dubai market. Delivered two full SaaS products from scratch.\n\n→ TheTutor.me — Online tutoring platform with video sessions, student-tutor matching, scheduling, and Stripe payment integration\n→ iSalonee — Multi-tenant SaaS salon & spa booking platform with CRM and staff scheduling for Dubai\n→ Contributed to 15+ production deployments across complete SDLC\n→ Reduced team defects by 20% through active code reviews and reusable component development\n\nStack: React, Node.js, Express.js, MongoDB, REST APIs, JavaScript, TypeScript',
     },
 ];

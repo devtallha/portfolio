@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         template: '%s | Tallha Mushtaq',
     },
     description:
-        "Full-stack engineer and team lead with 5+ years delivering remote solutions for international clients in Norway, UAE, and Pakistan. Currently leading development for DineHome — Norway's 2nd largest food ordering platform.",
+        "Full-stack engineer and team lead with 5+ years delivering remote solutions for international clients across Norway, the UAE, Switzerland, Germany, the US, and the UK. Currently leading development for DineHome — Norway's 2nd largest food ordering platform.",
     keywords: [
         'Senior MERN Stack Developer',
         'AI SaaS Developer',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         siteName: 'Tallha Mushtaq | Senior MERN Architect',
         title: 'Tallha Mushtaq | Full-Stack Engineer & Team Lead',
         description:
-            'Full-stack engineer with 5+ years of remote delivery for international clients across Norway and UAE. Available for remote opportunities.',
+            'Full-stack engineer with 5+ years of remote delivery for international clients across Norway, the UAE, Switzerland, Germany, the US, and the UK. Available for remote opportunities.',
         images: [
             {
                 url: '/logo/devtallha.png',
@@ -133,6 +133,14 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{if(!sessionStorage.getItem('preloader-shown')){document.documentElement.classList.add('preloading');setTimeout(function(){document.documentElement.classList.remove('preloading');},4000);}}catch(e){}})();`,
+                    }}
+                />
+                <noscript>
+                    <style>{`html.preloading body { visibility: visible !important; }`}</style>
+                </noscript>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

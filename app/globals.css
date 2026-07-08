@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Preloader FOUC guard — hides the page until the Preloader mounts and covers
+   the screen with its curtain (class toggled by the blocking script in
+   app/layout.tsx <head> and removed by components/Preloader.tsx). */
+html.preloading body { visibility: hidden; }
+
 /* Lenis smooth scroll */
 html.lenis,
 html.lenis body { height: auto; }
